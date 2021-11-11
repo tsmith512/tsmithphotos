@@ -1,0 +1,39 @@
+@import 'variables';
+
+.container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  > div {
+    flex: 1 0 50%;
+  }
+
+  @media screen and (min-width: 960px) {
+    flex-direction: row;
+
+  }
+}
+
+.contentPanel {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  margin: 2em;
+}
+
+.graphicPanel {
+  height: 100%;
+  overflow: hidden;
+}
+
+.graphic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

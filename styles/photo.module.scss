@@ -1,0 +1,28 @@
+@import 'variables';
+
+.container {
+  max-width: $max-width;
+  margin: 2em auto;
+
+  @media screen and (min-width: 720px) {
+    margin: 4em auto;
+  }
+}
+
+.photoPanel {
+
+}
+
+.photo {
+  margin: 0 auto;
+  max-height: 90vh;
+
+  border-radius: 2px;
+  box-shadow: 0 0 4px black;
+}
+
+.footerPanel {
+  text-align: center;
+  font-size: 0.875em;
+  margin: 0.5em 4em;
+}
