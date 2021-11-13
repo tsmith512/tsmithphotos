@@ -2,6 +2,7 @@
 
 const withOptimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
+const withTM = require('next-transpile-modules')(['photoswipe']);
 
 module.exports = withPlugins([
   [withOptimizedImages, {
@@ -10,6 +11,7 @@ module.exports = withPlugins([
       adapter: require('responsive-loader/sharp'),
     }
   }],
+  [withTM],
 ],{
   reactStrictMode: true,
   images: {

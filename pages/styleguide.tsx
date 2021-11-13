@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Banner, Gallery, Photo, Subhead, Text } from '../components';
+import { Banner, Gallery, Photo, PhotoSwipeInitializer, Subhead, Text } from '../components';
 
 const StyleGuide: NextPage = () => {
   return (
@@ -44,8 +44,7 @@ const StyleGuide: NextPage = () => {
         </Photo>
       </main>
 
-
-      <script src="/js/main.js"></script>
+      <PhotoSwipeInitializer />
     </div>
   );
 }

@@ -11,8 +11,13 @@ export const Photo = (props: PhotoProps) => {
 
   return (
     <section className={style.container}>
-      <div className={style.photoPanel}>
-        <a href={link}>
+      <div className={style.photoPanel} data-pswp-container>
+        <a
+          href={link}
+          data-pswp-width={link.width}
+          data-pswp-height={link.height}
+          data-cropped="true"
+          target="_blank">
           <img
             src={srcset.src}
             srcSet={srcset.srcSet}

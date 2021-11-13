@@ -41,8 +41,8 @@ const photos = [
 
 export const Gallery = (props: GalleryProps) => {
   return (
-    <section className={style.container}>
-      <div className={style.thumbPanel}>
+    <section className={style.container} id='test'>
+      <div className={style.thumbPanel} data-pswp-container>
         {photos.map(src => {
           const url = `/photos/${src}`;
           const link = require(`../public/photos/${src}?resize&size=1600`);
@@ -50,7 +50,15 @@ export const Gallery = (props: GalleryProps) => {
           const srcset = require(`../public/photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
 
           return (
-            <a key={src} href={link} className={style.thumbLink} style={{ backgroundColor: colors[0] }}>
+            <a
+              key={src}
+              href={link}
+              className={style.thumbLink}
+              style={{ backgroundColor: colors[0] }}
+              data-pswp-width={link.width}
+              data-pswp-height={link.height}
+              data-cropped="true"
+              target="_blank">
               <img
                 className={style.thumbImg}
                 src={srcset.src}
@@ -68,5 +76,5 @@ export const Gallery = (props: GalleryProps) => {
         {props.children}
       </div>
     </section>
-  )
+  );
 };
