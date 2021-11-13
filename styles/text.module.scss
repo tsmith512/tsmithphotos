@@ -1,21 +1,9 @@
 @import 'variables';
 
 .container {
-  max-width: $max-text-width;
-  margin: 2rem 2rem;
-
-  @media screen and (min-width: calc($max-text-width + 2rem)) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media screen and (min-width: $gallery-expand) {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
+  @include section($max-text-width);
 }
 
 .textPanel {
-  margin: 0 auto;
-  max-width: 40rem;
+
 }

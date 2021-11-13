@@ -1,12 +1,7 @@
 @import 'variables';
 
 .container {
-  max-width: $max-width;
-  margin: 2rem auto;
-
-  @media screen and (min-width: $gallery-expand) {
-    margin: 4rem auto;
-  }
+  @include section();
 }
 
 .photoPanel {

@@ -1,18 +1,7 @@
 @import 'variables';
 
 .container {
-  max-width: $max-width;
-  margin: 2rem 0.5rem;
-
-  @media screen and (min-width: $gallery-expand) {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-
-  @media screen and (min-width: $max-width) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  @include section($min: 0.5em);
 }
 
 .thumbPanel {
@@ -44,9 +33,6 @@
   width: 100%;
   object-fit: cover;
   object-position: center center;
-
-  border-radius: 2px;
-  box-shadow: 0 0 4px black;
 }
 
 .thumbImgPreview {
