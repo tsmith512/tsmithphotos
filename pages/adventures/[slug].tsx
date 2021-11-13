@@ -4,13 +4,16 @@ import { join } from 'path';
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
 import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
 
-import { Album } from '../../components';
+import { Album, Gallery, Photo, Story, Text, Subhead } from '../../components';
+const AllowedComponents = { Gallery, Photo, Story, Text, Subhead };
 
 const albumDirectory = join(process.cwd(), '_posts');
 
 const getPostContent = (slug: any) => {
-  const postPath = join(albumDirectory, `${slug}.md`);
+  const postPath = join(albumDirectory, `${slug}.mdx`);
 
   const file = fs.readFileSync(postPath, 'utf8');
 
@@ -43,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       post: {
         ...post.data,
-        content: post.content,
+        content: await serialize(post.content),
       },
     },
   };
@@ -77,14 +80,14 @@ const AlbumPage: NextPage<AlbumInterface> = ({ post }) => {
     <Album
       title={post.title}
       date={post.date}
-      image="2014-8926.jpg"
-      intro="test">
+      image={post.image}
+      subhead={post.subhead}
+      intro={post.intro}>
 
-      {post.content}
+      <MDXRemote components={AllowedComponents} {...post.content} />
     </Album>
 
   );
-
-}
+};
 
 export default AlbumPage;

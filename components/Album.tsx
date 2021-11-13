@@ -15,6 +15,7 @@ interface AlbumProps {
   title: string,
   date?: string, // @TODO: For now.
   intro?: string,
+  subhead?: string,
   image: string,
 }
 
@@ -29,7 +30,8 @@ export const Album: React.FC<AlbumProps> = (props): ReactElement => {
       <Banner filename={props.image}>
         <h1>{props.title}</h1>
         {props.date && (<Date>{props.date}</Date>)}
-        {props.intro && (<Subhead>{props.intro}</Subhead>)}
+        {props.subhead && (<Subhead>{props.subhead}</Subhead>)}
+        {props.intro && (<p>{props.intro}</p>)}
       </Banner>
 
       {props.children}
