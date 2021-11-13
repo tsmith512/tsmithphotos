@@ -30,7 +30,20 @@ const StyleGuide: NextPage = () => {
         </Banner>
 
         <h1>Gallery</h1>
-        <Gallery>
+        <Gallery filenames={[
+          '2014-8926.jpg',
+          '2014-8927.jpg',
+          '2014-8946.jpg',
+          '2014-8973.jpg',
+          '2014-8976.jpg',
+          '2014-8984.jpg',
+          '2014-8990.jpg',
+          '2014-9001.jpg',
+          '2014-9009.jpg',
+          '2014-9024.jpg',
+          '2014-9070.jpg',
+          '2014-9094.jpg',
+        ]}>
           <p>Gallery Caption</p>
         </Gallery>
 
@@ -46,7 +59,7 @@ const StyleGuide: NextPage = () => {
         </Text>
 
         <h1>Single Photo</h1>
-        <Photo>
+        <Photo filename="2014-9152.jpg">
           <p>Photo Caption</p>
         </Photo>
       </main>

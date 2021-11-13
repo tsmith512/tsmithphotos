@@ -2,9 +2,9 @@ import { ReactElement } from 'react';
 import style from '../styles/gallery.module.scss';
 
 interface GalleryProps {
-  children?: any
+  children?: any,
   filenames: string[],
-  row: boolean | null,
+  row?: boolean | null,
 }
 
 export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
