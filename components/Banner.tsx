@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import style from '../styles/banner.module.scss';
 
 interface BannerProps {
   children?: any
 }
 
-export const Banner = (props: BannerProps) => {
+export const Banner: React.FC<BannerProps> = (props): ReactElement => {
   const filename = 'DSC_2888.jpg';
   const colors = require(`../public/photos/${filename}?lqip-colors`);
   const srcset = require(`../public/photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);

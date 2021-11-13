@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import style from '../styles/photo.module.scss';
 
 interface PhotoProps {
   children?: any
 }
 
-export const Photo = (props: PhotoProps) => {
+export const Photo: React.FC<PhotoProps> = (props): ReactElement => {
   const filename = 'DSC_9070.jpg'; //'DSC_2836.jpg';
   const link = require(`../public/photos/${filename}?resize&size=1600`);
   const srcset = require(`../public/photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);

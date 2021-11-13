@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import style from '../styles/gallery.module.scss';
 
 interface GalleryProps {
@@ -39,7 +40,7 @@ const photos = [
   'DSC_9152.jpg',
 ];
 
-export const Gallery = (props: GalleryProps) => {
+export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
   return (
     <section className={style.container} id='test'>
       <div className={style.thumbPanel} data-pswp-container>

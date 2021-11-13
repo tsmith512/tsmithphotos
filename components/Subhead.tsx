@@ -1,10 +1,10 @@
-import style from '../styles/text.module.scss';
+import { ReactElement } from 'react';
 
 interface SubheadProps {
   children?: any
 }
 
-export const Subhead = (props: SubheadProps) => {
+export const Subhead: React.FC<SubheadProps> = (props): ReactElement => {
   return (
     <p className='subhead'>{props.children}</p>
   );
