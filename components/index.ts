@@ -1,6 +1,7 @@
 export { Album } from './Album';
 export { Banner } from './Banner';
 export { Gallery } from './Gallery';
+export { Masthead } from './Masthead';
 export { Photo } from './Photo';
 export { PhotoSwipeInitializer } from './PhotoSwipeInitializer';
 export { Date, Subhead } from './Typography';
