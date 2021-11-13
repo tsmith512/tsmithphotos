@@ -17,7 +17,5 @@
 }
 
 .footerPanel {
-  text-align: center;
-  font-size: 0.875rem;
-  margin: 0.5rem 4rem;
+  @include subtext();
 }

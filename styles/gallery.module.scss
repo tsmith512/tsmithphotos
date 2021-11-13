@@ -38,7 +38,7 @@
   @media screen and (min-width: $gallery-expand) {
     width: auto;
     height: 250px;
-    max-width: 50%; @TODO: Debating this one...
+    max-width: calc(50% - 1rem); // @TODO: Debating this one...
   }
 }
 
@@ -61,7 +61,5 @@
 }
 
 .footerPanel {
-  text-align: center;
-  font-size: 0.875rem;
-  margin: 0.5rem 4rem;
+  @include subtext();
 }

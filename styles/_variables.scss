@@ -24,3 +24,11 @@ $gallery-expand: math.div(720px, 16px) * 1rem;
     margin-bottom: 8rem;
   }
 }
+
+@mixin subtext() {
+  margin: 0.5rem 4rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #ccc;
+}
