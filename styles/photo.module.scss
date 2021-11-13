@@ -2,10 +2,10 @@
 
 .container {
   max-width: $max-width;
-  margin: 2em auto;
+  margin: 2rem auto;
 
-  @media screen and (min-width: 720px) {
-    margin: 4em auto;
+  @media screen and (min-width: $gallery-expand) {
+    margin: 4rem auto;
   }
 }
 
@@ -16,13 +16,13 @@
 .photo {
   margin: 0 auto;
   max-height: 90vh;
+  width: 100%;
 
-  border-radius: 2px;
-  box-shadow: 0 0 4px black;
+  object-fit: contain;
 }
 
 .footerPanel {
   text-align: center;
-  font-size: 0.875em;
-  margin: 0.5em 4em;
+  font-size: 0.875rem;
+  margin: 0.5rem 4rem;
 }

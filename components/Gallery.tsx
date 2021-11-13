@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import style from '../styles/gallery.module.scss';
 
 interface GalleryProps {
@@ -45,11 +43,26 @@ export const Gallery = (props: GalleryProps) => {
   return (
     <section className={style.container}>
       <div className={style.thumbPanel}>
-        {photos.map(src => (
-          <a key={src} href={`/photos/${src}`} className={style.thumbLink}>
-            <img className={style.thumbImg} src={require(`../public/photos/${src}?resize&size=800`)} />
-          </a>
-        ))}
+        {photos.map(src => {
+          const url = `/photos/${src}`;
+          const link = require(`../public/photos/${src}?resize&size=1600`);
+          const colors = require(`../public/photos/${src}?lqip-colors`);
+          const srcset = require(`../public/photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
+
+          return (
+            <a key={src} href={link} className={style.thumbLink} style={{ backgroundColor: colors[0] }}>
+              <img
+                className={style.thumbImg}
+                src={srcset.src}
+                srcSet={srcset.srcSet}
+                sizes='(min-width: 720px) 400px, 50vw'
+                width={srcset.width}
+                height={srcset.height}
+                loading="lazy"
+              />
+            </a>
+          );
+        })}
       </div>
       <div className={style.footerPanel}>
         {props.children}

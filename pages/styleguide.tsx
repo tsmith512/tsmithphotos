@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Banner, Gallery, Photo } from '../components';
+import { Banner, Gallery, Photo, Subhead, Text } from '../components';
 
 const StyleGuide: NextPage = () => {
   return (
@@ -27,10 +27,25 @@ const StyleGuide: NextPage = () => {
           <p>Gallery Caption</p>
         </Gallery>
 
+        <h1>Text</h1>
+        <Text>
+          <h1>Heading 1</h1>
+          <Subhead>Subhead diam tempor luctus nec nec metus.</Subhead>
+          <p><em>Nam nisi erat, euismod non eleifend eu,</em> venenatis sed arcu. Etiam mi quam, fringilla iaculis aliquam ut, porta quis nunc. Pellentesque mattis sem sed feugiat ultricies. Ut ut lorem vel risus interdum rutrum. Nulla ut mollis ligula. Integer vel elementum neque, sed pretium dui. Morbi ac nulla et sapien tincidunt luctus ac ut urna. Etiam nec arcu id tellus hendrerit dapibus a at metus.</p>
+          <h2>Heading 2</h2>
+          <p><strong>Aliquam at euismod tellus</strong>. Etiam euismod vehicula justo, a consectetur quam pellentesque eu. Vestibulum hendrerit nec odio rutrum mollis. Quisque faucibus tellus vel tempus elementum. Cras at mi eget lectus congue sagittis id non erat. Sed viverra leo id lacus rutrum, eu elementum felis rhoncus. Aenean ac lectus id felis aliquam tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla libero ligula, mattis ac sagittis vitae, lacinia a leo. Vestibulum sed venenatis est. Proin id faucibus ligula.</p>
+          <h3>Heading 3</h3>
+          <p><a href="#">Vestibulum accumsan eu nisl nec condimentum</a>. Curabitur rhoncus rhoncus sem tristique egestas. Donec lobortis, diam ac consequat bibendum, magna tellus luctus tortor, id tincidunt velit ante tincidunt leo. Phasellus ac lacus orci. In dapibus viverra justo. Duis feugiat nulla non auctor porta. Pellentesque pellentesque risus in tempor consequat.</p>
+        </Text>
+
+        <h1>Single Photo</h1>
         <Photo>
           <p>Photo Caption</p>
         </Photo>
       </main>
+
+
+      <script src="/js/main.js"></script>
     </div>
   );
 }

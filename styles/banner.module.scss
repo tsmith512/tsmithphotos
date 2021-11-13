@@ -10,7 +10,7 @@
     flex: 1 0 50%;
   }
 
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: $wide-columns) {
     flex-direction: row;
 
   }
@@ -24,7 +24,7 @@
 }
 
 .content {
-  margin: 2em;
+  margin: 2rem;
 }
 
 .graphicPanel {
