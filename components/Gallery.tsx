@@ -3,52 +3,22 @@ import style from '../styles/gallery.module.scss';
 
 interface GalleryProps {
   children?: any
+  filenames: string[],
+  row: boolean | null,
 }
 
-const photos = [
-  'DSC_1809.jpg',
-  'DSC_1941.jpg',
-  'DSC_2138.jpg',
-  'PXL_20210704_025618792.jpg',
-  'PXL_20210719_164655421.jpg',
-  'DSC_2152.jpg',
-  'DSC_2264.jpg',
-  'DSC_2569.jpg',
-  'PXL_20210719_183515893.jpg',
-  'DSC_2694.jpg',
-  'DSC_9132.jpg',
-  'DSC_2775.jpg',
-  'DSC_2836.jpg',
-  'DSC_2846.jpg',
-  'DSC_2888.jpg',
-  'DSC_8920.jpg',
-  'DSC_8926.jpg',
-  'PXL_20210704_1548541082.jpg',
-  'DSC_8927.jpg',
-  'DSC_8946.jpg',
-  'DSC_9148.jpg',
-  'DSC_8973.jpg',
-  'DSC_8976.jpg',
-  'DSC_8984.jpg',
-  'DSC_8990.jpg',
-  'DSC_9001.jpg',
-  'DSC_9009.jpg',
-  'DSC_9024.jpg',
-  'DSC_9070.jpg',
-  'DSC_9094.jpg',
-  'DSC_9113.jpg',
-  'DSC_9152.jpg',
-];
-
 export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
+  const photos = props.filenames;
+  const row = props.row ? true : null;
+
   return (
-    <section className={style.container} id='test'>
-      <div className={style.thumbPanel} data-pswp-container>
+    <section className={style.container} >
+      <div className={style.thumbPanel} data-pswp-container data-row={row}>
         {photos.map(src => {
           const url = `/photos/${src}`;
-          const link = require(`../public/photos/${src}?resize&size=1600`);
-          const colors = require(`../public/photos/${src}?lqip-colors`);
-          const srcset = require(`../public/photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
+          const link = require(`../photos/${src}?resize&size=1600`);
+          const colors = require(`../photos/${src}?lqip-colors`);
+          const srcset = require(`../photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
 
           return (
             <a

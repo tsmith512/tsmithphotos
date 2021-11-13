@@ -12,7 +12,7 @@ $gallery-expand: math.div(720px, 16px) * 1rem;
 
 @mixin section($max: $max-width, $min: 0) {
   max-width: $max;
-  margin: 2rem $min;
+  margin: 4rem $min;
 
   @media screen and (min-width: calc($max + 2rem)) {
     margin-left: auto;
@@ -20,7 +20,7 @@ $gallery-expand: math.div(720px, 16px) * 1rem;
   }
 
   @media screen and (min-width: $gallery-expand) {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
   }
 }

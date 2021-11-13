@@ -1,7 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Banner, Gallery, Photo, PhotoSwipeInitializer, Subhead, Text } from '../components';
+import {
+  Banner,
+  Gallery,
+  Photo,
+  PhotoSwipeInitializer,
+  Subhead,
+  Text
+} from '../components';
 
 const StyleGuide: NextPage = () => {
   return (
@@ -14,7 +21,7 @@ const StyleGuide: NextPage = () => {
       </Head>
 
       <main>
-        <Banner>
+        <Banner filename="2014-9070.jpg">
           <h1>Banner</h1>
           <p>
             Banner Element is a full-width, full-height split container with

@@ -2,13 +2,14 @@ import { ReactElement } from 'react';
 import style from '../styles/banner.module.scss';
 
 interface BannerProps {
-  children?: any
+  children?: any,
+  filename: string,
 }
 
 export const Banner: React.FC<BannerProps> = (props): ReactElement => {
-  const filename = 'DSC_2888.jpg';
-  const colors = require(`../public/photos/${filename}?lqip-colors`);
-  const srcset = require(`../public/photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
+  const filename = props.filename;
+  const colors = require(`../photos/${filename}?lqip-colors`);
+  const srcset = require(`../photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
 
   return (
     <section className={style.container}>
