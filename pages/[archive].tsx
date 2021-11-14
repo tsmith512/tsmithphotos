@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
 
 import { albumArchives, ArchiveInterface, getPosts, PostInterface, PostMetaInterface } from '../lib/posts';
-import { Masthead, Subhead, Text } from '../components';
+import { Masthead, PostIndex, Subhead, Text } from '../components';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params?.archive) {
@@ -49,9 +49,8 @@ const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
       <Masthead title={archive.title}>
         <Subhead>Taylor Smith</Subhead>
       </Masthead>
-      <Text>
-        {posts?.map(post => (<li key={post.slug}><a href={post.url}>{post.data.title}</a></li>))}
-      </Text>
+
+      <PostIndex posts={posts} />
     </main>
   )
 };
