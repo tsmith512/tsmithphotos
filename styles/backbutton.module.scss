@@ -1,0 +1,39 @@
+@import 'variables';
+
+.button {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-decoration: none;
+
+  &:hover {
+    .icon {
+      opacity: 1;
+    }
+    .text {
+      width: 150px;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+
+  opacity: 0.125;
+  transition: opacity .5s ease;
+}
+
+.text {
+  color: white;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: 4px;
+  font-weight: bold;
+
+  width: 0;
+  overflow: hidden;
+  transition: width .5s ease;
+}

@@ -4,37 +4,37 @@ import Head from 'next/head';
 import { ReactElement } from 'react';
 
 import {
+  BackButton,
   Banner,
   Date,
   PhotoSwipeInitializer,
   Subhead
 } from './index';
 
+import { ArchiveInterface, PostInterface } from '../lib/posts';
+
 interface AlbumProps {
-  children?: any,
-  title: string,
-  date?: string, // @TODO: For now.
-  intro?: string,
-  subhead?: string,
-  image: string,
+  post: PostInterface,
+  archive: ArchiveInterface,
 }
 
-export const Album: React.FC<AlbumProps> = (props): ReactElement => {
+export const Album: React.FC<AlbumProps> = ({ post, archive, children }): ReactElement => {
 
   return (
     <main>
       <Head>
-        <title>{props.title} | Taylor Smith</title>
+        <title>{post.data.title} | Taylor Smith</title>
       </Head>
 
-      <Banner filename={props.image}>
-        <h1>{props.title}</h1>
-        {props.date && (<Date>{props.date}</Date>)}
-        {props.subhead && (<Subhead>{props.subhead}</Subhead>)}
-        {props.intro && (<p>{props.intro}</p>)}
+      <Banner filename={post.data.image}>
+        <BackButton url={'/' + archive.slug}>{archive.title}</BackButton>
+        <h1>{post.data.title}</h1>
+        {post.data.date && (<Date>{post.data.date}</Date>)}
+        {post.data.subhead && (<Subhead>{post.data.subhead}</Subhead>)}
+        {post.data.intro && (<p>{post.data.intro}</p>)}
       </Banner>
 
-      {props.children}
+      {children}
 
       <PhotoSwipeInitializer />
     </main>

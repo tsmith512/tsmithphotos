@@ -50,7 +50,7 @@ const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
         <Subhead>Taylor Smith</Subhead>
       </Masthead>
       <Text>
-        {posts?.map(post => (<li key={post.data.date}>{post.data.title}</li>))}
+        {posts?.map(post => (<li key={post.slug}><a href={post.url}>{post.data.title}</a></li>))}
       </Text>
     </main>
   )

@@ -1,14 +1,12 @@
-import fs from 'fs';
-import { join } from 'path';
-
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
+
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { albumArchives, getPostMeta, getPosts, PostMetaInterface } from '../../lib/posts';
-
+import { albumArchives, ArchiveInterface, getPostMeta, getPosts, PostInterface, PostMetaInterface } from '../../lib/posts';
 import { Album, Gallery, Photo, Story, Text, Subhead } from '../../components';
+
 const AllowedComponents = { Gallery, Photo, Story, Text, Subhead };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -35,10 +33,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      post: {
-        ...post.data,
-        content: await serialize(post.content),
-      },
+      post,
+      archive,
+      content: await serialize(post.content),
     },
   };
 };
@@ -63,19 +60,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // @TODO: Make better.
 interface AlbumPageInterface {
-  post: PostMetaInterface & { content: any },
+  post: PostInterface,
+  archive: ArchiveInterface,
+  content: any,
 };
 
-const AlbumPage: NextPage<AlbumPageInterface> = ({ post }) => {
+const AlbumPage: NextPage<AlbumPageInterface> = ({ post, archive, content }) => {
   return (
     <Album
-      title={post.title}
-      date={post.date}
-      image={post.image}
-      subhead={post.subhead}
-      intro={post.intro}>
+      post={post}
+      archive={archive}>
 
-      <MDXRemote components={AllowedComponents} {...post.content} />
+      <MDXRemote components={AllowedComponents} {...content} />
     </Album>
 
   );

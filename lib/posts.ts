@@ -21,6 +21,7 @@ export interface PostMetaInterface {
 export interface PostInterface {
   slug: string,
   file: string,
+  url: string,
   data: PostMetaInterface,
   archive: ArchiveInterface,
   content: string,
@@ -60,6 +61,7 @@ export const getPostMeta = (archive: ArchiveInterface, filename: string): PostIn
   return {
     slug,
     file: postFile,
+    url: `/${archive.slug}/${slug}`,
     data: Object.assign({
       // This is to make type validation happy. This whole thing will explode
       // if these three keys aren't in the frontmatter of all posts.
