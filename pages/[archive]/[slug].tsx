@@ -3,44 +3,35 @@ import { join } from 'path';
 
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
-import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+
+import { albumArchives, getPostMeta, getPosts, PostMetaInterface } from '../../lib/posts';
 
 import { Album, Gallery, Photo, Story, Text, Subhead } from '../../components';
 const AllowedComponents = { Gallery, Photo, Story, Text, Subhead };
 
-const albumDirectory = join(process.cwd(), '_posts');
-
-const getPostContent = (slug: any) => {
-  const postPath = join(albumDirectory, `${slug}.mdx`);
-
-  const file = fs.readFileSync(postPath, 'utf8');
-
-  const { data, content } = matter(file);
-
-  // @TODO: In the tutorial, this process was abstracted into a utility function
-  // and only requested frontmatter values were returned to getStaticProps.
-
-  return {
-    slug,
-    data,
-    content,
-  };
-};
-
 export const getStaticProps: GetStaticProps = async (context) => {
-  if (!context.params?.slug) {
-    return {
-      notFound: true,
-    };
+  if (!context.params?.archive || !context.params?.slug) {
+    return { notFound: true, };
+  }
+
+  const archiveName = (context.params.archive instanceof Array)
+    ? context.params.archive[0]
+    : context.params.archive;
+
+  const archive = albumArchives.find(a => a.slug === archiveName);
+
+  if (!archive) {
+    return { notFound: true, };
   }
 
   const slug = (context.params.slug instanceof Array)
-    ? context.params.slug[0].replace(/\.mdx?$/, '')
-    : context.params.slug.replace(/\.mdx?$/, '');
+    ? context.params.slug[0]
+    : context.params.slug;
 
-  const post = getPostContent(slug);
+  // @TODO: That's a file extension requirement that may not be necessary.
+  const post = getPostMeta(archive, `${slug}.mdx`);
 
   return {
     props: {
@@ -53,15 +44,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filenames = fs.readdirSync(albumDirectory);
-  const posts = filenames
-    .map((file) => getPostContent(file.replace(/\.mdx?$/, '')))
-    .sort((p1, p2) => (p1.data.date > p2.data.date ? -1 : 1));
+  const posts = albumArchives.map(archive => getPosts(archive)).flat();
 
   const paths = posts.map((post) => {
     return {
       params: {
-        archive: 'adventures',
+        archive: post.archive.slug,
         slug: post.slug
       },
     }
@@ -74,11 +62,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 // @TODO: Make better.
-interface AlbumInterface {
-  post: any,
+interface AlbumPageInterface {
+  post: PostMetaInterface & { content: any },
 };
 
-const AlbumPage: NextPage<AlbumInterface> = ({ post }) => {
+const AlbumPage: NextPage<AlbumPageInterface> = ({ post }) => {
   return (
     <Album
       title={post.title}

@@ -1,14 +1,8 @@
-import fs from 'fs';
-import { join } from 'path';
-
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
-import { Masthead, Subhead } from '../components';
 
-const albumDirectory = join(process.cwd(), '_posts');
+import { albumArchives, ArchiveInterface, getPosts, PostInterface, PostMetaInterface } from '../lib/posts';
+import { Masthead, Subhead, Text } from '../components';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params?.archive) {
@@ -17,32 +11,48 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
+  const archiveName = (context.params.archive instanceof Array)
+    ? context.params.archive[0]
+    : context.params.archive;
+
+  const archive = albumArchives.find(a => a.slug === archiveName);
+
+  if (!archive) {
+    return { notFound: true, };
+  }
+
   return {
     props: {
-      archive: context.params.archive,
+      archive,
+      posts: getPosts(archive),
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [
-      { params: { archive: 'adventures', }, },
-      { params: { archive: 'hobbies', }, },
-    ],
+    paths: albumArchives.map(a => {
+      return { params: { archive: a.slug } }
+    }),
     fallback: false,
   };
 };
 
 interface IndexInterface {
-  archive: string,
+  archive: ArchiveInterface,
+  posts: PostInterface[] | undefined,
 };
 
-const IndexPage: NextPage<IndexInterface> = ({ archive }) => {
+const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
   return (
-    <Masthead title={archive}>
-      <Subhead>Taylor Smith</Subhead>
-    </Masthead>
+    <main>
+      <Masthead title={archive.title}>
+        <Subhead>Taylor Smith</Subhead>
+      </Masthead>
+      <Text>
+        {posts?.map(post => (<li key={post.data.date}>{post.data.title}</li>))}
+      </Text>
+    </main>
   )
 };
 
