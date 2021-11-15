@@ -14,7 +14,7 @@ export const PostIndex = (props: PostIndexProps) => {
     const srcset = require(`../photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
 
     return (
-      <div className={style.box}>
+      <div className={style.box} key={post.slug}>
         <a className={style.link} href={post.url}>
           <div>
             <img
