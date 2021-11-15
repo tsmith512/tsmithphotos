@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "bin/setup.sh",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"

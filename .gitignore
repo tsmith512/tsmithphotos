@@ -38,3 +38,6 @@ yarn-error.log*
 
 # Do not put images in the repo
 photos
+
+bin/*
+!bin/setup.sh
