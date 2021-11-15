@@ -50,7 +50,7 @@ const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
         <Subhead>Taylor Smith</Subhead>
       </Masthead>
 
-      <PostIndex posts={posts} />
+      {posts?.length && (<PostIndex posts={posts} />) }
     </main>
   )
 };
