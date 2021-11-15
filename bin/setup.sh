@@ -4,7 +4,7 @@
 # Is this pre-installed?
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "bin/awscliv2.zip"
-unzip -o bin/awscliv2.zip -d bin/aws-installer
+unzip -q -o bin/awscliv2.zip -d bin/aws-installer
 
 # This script really doesn't do well without absolute paths so try and be in the
 # directory it will run in.
