@@ -10,19 +10,19 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  @media screen and (min-width: $gallery-expand) {
-    &[data-row] {
-      flex-wrap: nowrap;
-
-      .thumbLink {
-        height: initial !important;
-      }
-    }
-  }
-
   @media screen and (min-width: calc($max-width + 3rem)) {
     margin-left: -0.5rem;
     margin-right: -0.5rem;
+  }
+}
+
+.row {
+  @media screen and (min-width: $gallery-expand) {
+    flex-wrap: nowrap;
+
+    .thumbLink {
+      height: initial !important;
+    }
   }
 }
 

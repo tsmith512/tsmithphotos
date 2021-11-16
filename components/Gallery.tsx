@@ -9,11 +9,17 @@ interface GalleryProps {
 
 export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
   const photos = props.filenames;
-  const row = props.row ? true : null;
+
+  const row = (props.filenames.length <= 4 || props.row) ? true : null;
+  const pair = (props.filenames.length === 2) ? true : null;
+
+  const options = [style.thumbPanel];
+  if (row) { options.push(style.row); }
+
 
   return (
     <section className={style.container} >
-      <div className={style.thumbPanel} data-pswp-container data-row={row}>
+      <div className={options.join(' ')} data-pswp-container data-row={row}>
         {photos.map(src => {
           const url = `/photos/${src}`;
           const link = require(`../photos/${src}?resize&size=1600`);
@@ -34,7 +40,7 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
                 className={style.thumbImg}
                 src={srcset.src}
                 srcSet={srcset.srcSet}
-                sizes='(min-width: 720px) 400px, 50vw'
+                sizes={`(min-width: 720px) ${pair ? '600px' : '400px'}, 50vw`}
                 width={srcset.width}
                 height={srcset.height}
                 loading="lazy"

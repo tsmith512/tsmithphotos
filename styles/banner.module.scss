@@ -21,10 +21,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: $wide-columns) {
+    justify-content: flex-start;
+  }
 }
 
 .content {
-  margin: 2rem;
+  margin: 4rem;
   max-width: $max-text-width;
 }
 
