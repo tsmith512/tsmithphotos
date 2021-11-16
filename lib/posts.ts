@@ -34,10 +34,12 @@ export const albumArchives: ArchiveInterface[] = [
     root: join(process.cwd(), '_adventures'),
     sort: 'date',
   },
-  // hobbies: {
-  //   root: join(process.cwd(), '_hobbies'),
-  //   sort: 'order',
-  // },
+  {
+    slug: 'hobbies',
+    title: 'Hobbies',
+    root: join(process.cwd(), '_hobbies'),
+    sort: 'date',
+  },
 ];
 
 export const getPosts = (archive: ArchiveInterface) => {
