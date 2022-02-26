@@ -19,11 +19,10 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
 
   return (
     <section className={style.container} >
-      <div className={options.join(' ')} data-pswp-container data-row={row}>
+      <div className={options.join(' ')} data-pswp-container data-row={row} data-count={photos.length}>
         {photos.map(src => {
           const url = `/photos/${src}`;
           const link = require(`../photos/${src}?resize&size=1600`);
-          const colors = require(`../photos/${src}?lqip-colors`);
           const srcset = require(`../photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
 
           return (
@@ -31,20 +30,21 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
               key={src}
               href={link}
               className={style.thumbLink}
-              style={{ backgroundColor: colors[0] }}
               data-pswp-width={link.width}
               data-pswp-height={link.height}
               data-cropped="true"
               target="_blank">
-              <img
-                className={style.thumbImg}
-                src={srcset.src}
-                srcSet={srcset.srcSet}
-                sizes={`(min-width: 720px) ${pair ? '600px' : '400px'}, 50vw`}
-                width={srcset.width}
-                height={srcset.height}
-                loading="lazy"
-              />
+              <div className={style.thumbIRContainer}>
+                <img
+                  className={style.thumbImg}
+                  src={srcset.src}
+                  srcSet={srcset.srcSet}
+                  sizes={`(min-width: 720px) ${pair ? '600px' : '400px'}, 50vw`}
+                  width={srcset.width}
+                  height={srcset.height}
+                  loading="lazy"
+                />
+              </div>
             </a>
           );
         })}

@@ -19,10 +19,6 @@
 .row {
   @media screen and (min-width: $gallery-expand) {
     flex-wrap: nowrap;
-
-    .thumbLink {
-      height: initial !important;
-    }
   }
 }
 
@@ -30,34 +26,84 @@
   position: relative;
   display: block;
   overflow: hidden;
-  margin: 0.5rem;
 
   width: calc(50% - 1rem);
   flex-grow: 1;
 
   @media screen and (min-width: $gallery-expand) {
     width: auto;
-    height: 250px;
-    max-width: calc(50% - 1rem); // @TODO: Debating this one...
+    flex-basis: 33%;
+    max-width: 50%;
+  }
+
+  .thumbPanel[data-count = "10"] & {
+    flex-basis: 20%;
+  }
+
+  .thumbPanel[data-count = "4"] &,
+  .thumbPanel[data-count = "8"] &,
+  .thumbPanel[data-count = "12"] & {
+    flex-basis: 25%;
+  }
+
+  .thumbPanel[data-count = "7"] &:nth-child(7n+1),
+  .thumbPanel[data-count = "7"] &:nth-child(7n+2),
+  .thumbPanel[data-count = "7"] &:nth-child(7n+3) {
+    flex-basis: 33%
+  }
+
+  .thumbPanel[data-count = "7"] &:nth-child(7n+4),
+  .thumbPanel[data-count = "7"] &:nth-child(7n+5),
+  .thumbPanel[data-count = "7"] &:nth-child(7n+6),
+  .thumbPanel[data-count = "7"] &:nth-child(7n+7) {
+    flex-basis: 25%
+  }
+
+  .thumbPanel[data-count = "11"] &:nth-child(11n+1),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+2),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+3),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+4) {
+    flex-basis: 25%
+  }
+
+  .thumbPanel[data-count = "11"] &:nth-child(11n+5),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+6),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+7) {
+    flex-basis: 33%
+  }
+
+  .thumbPanel[data-count = "11"] &:nth-child(11n+8),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+9),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+10),
+  .thumbPanel[data-count = "11"] &:nth-child(11n+11) {
+    flex-basis: 25%
   }
 }
 
-.thumbImg, .thumbImgPreview {
+.thumbIRContainer {
+  position: relative;
+  display: block;
+
+  margin: 0.5rem;
+
+  @media screen and (min-width: $gallery-expand) {
+    height: 0;
+    padding-top: 66%;
+  }
+}
+
+.thumbImg {
   display: block;
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center center;
-}
 
-.thumbImgPreview {
-  position: absolute;
-  z-index: 0;
-}
-
-.thumbImg {
-  position: relative;
-  z-index: 1;
+  @media screen and (min-width: $gallery-expand) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .footerPanel {

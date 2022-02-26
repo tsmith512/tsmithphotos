@@ -21,7 +21,7 @@ const StyleGuide: NextPage = () => {
       </Head>
 
       <main>
-        <Banner filename="2014-9070.jpg">
+        <Banner filename="Adventures - IAH/DSC_9070.jpg">
           <h1>Banner</h1>
           <p>
             Banner Element is a full-width, full-height split container with
@@ -31,18 +31,18 @@ const StyleGuide: NextPage = () => {
 
         <h1>Gallery</h1>
         <Gallery filenames={[
-          '2014-8926.jpg',
-          '2014-8927.jpg',
-          '2014-8946.jpg',
-          '2014-8973.jpg',
-          '2014-8976.jpg',
-          '2014-8984.jpg',
-          '2014-8990.jpg',
-          '2014-9001.jpg',
-          '2014-9009.jpg',
-          '2014-9024.jpg',
-          '2014-9070.jpg',
-          '2014-9094.jpg',
+          'Adventures - IAH/DSC_8926.jpg',
+          'Adventures - IAH/DSC_8927.jpg',
+          'Adventures - IAH/DSC_8946.jpg',
+          'Adventures - IAH/DSC_8973.jpg',
+          'Adventures - IAH/DSC_8976.jpg',
+          'Adventures - IAH/DSC_8984.jpg',
+          'Adventures - IAH/DSC_8990.jpg',
+          'Adventures - IAH/DSC_9001.jpg',
+          'Adventures - IAH/DSC_9009.jpg',
+          'Adventures - IAH/DSC_9024.jpg',
+          'Adventures - IAH/DSC_9070.jpg',
+          'Adventures - IAH/DSC_9094.jpg',
         ]}>
           <p>Gallery Caption</p>
         </Gallery>
@@ -59,7 +59,7 @@ const StyleGuide: NextPage = () => {
         </Text>
 
         <h1>Single Photo</h1>
-        <Photo filename="2014-9152.jpg">
+        <Photo filename="Adventures - IAH/DSC_9152.jpg">
           <p>Photo Caption</p>
         </Photo>
       </main>
