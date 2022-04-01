@@ -1,6 +1,7 @@
 import style from '../styles/postindex.module.scss';
 
 import { PostInterface } from '../lib/posts';
+import { processedImage } from '../lib/images';
 
 interface PostIndexProps {
   posts: PostInterface[],
@@ -10,19 +11,18 @@ export const PostIndex = (props: PostIndexProps) => {
 
   const buttons = props.posts.map(post => {
     const filename = post.data.image;
-    const link = require(`../photos/${filename}?resize&size=1600`);
-    const srcset = require(`../photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
+    const image = processedImage(filename);
 
     return (
       <div className={style.box} key={post.slug}>
         <a className={style.link} href={post.url}>
           <div>
             <img
-              src={srcset.src}
-              srcSet={srcset.srcSet}
+              src={image.fullSrc}
+              srcSet={image.srcSet}
               sizes='(min-width: 1200px) 400px, 100vw'
-              width={srcset.width}
-              height={srcset.height}
+              width={image.width}
+              height={image.height}
               className={style.image} />
             <span className={style.title}>
               {post.data.title}

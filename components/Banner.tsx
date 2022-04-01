@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import style from '../styles/banner.module.scss';
+import { processedImage } from '../lib/images';
 
 interface BannerProps {
   children?: any,
@@ -8,8 +9,7 @@ interface BannerProps {
 
 export const Banner: React.FC<BannerProps> = (props): ReactElement => {
   const filename = props.filename;
-  const colors = require(`../photos/${filename}?lqip-colors`);
-  const srcset = require(`../photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
+  const image = processedImage(filename);
 
   return (
     <section className={style.container}>
@@ -18,13 +18,13 @@ export const Banner: React.FC<BannerProps> = (props): ReactElement => {
           {props.children}
         </div>
       </div>
-      <div className={style.graphicPanel} style={{ backgroundColor: colors[0] }}>
+      <div className={style.graphicPanel}>
         <img
-          src={srcset.src}
-          srcSet={srcset.srcSet}
+          src={image.fullSrc}
+          srcSet={image.srcSet}
           sizes='(min-width: 960px) 50vw, 100vw'
-          width={srcset.width}
-          height={srcset.height}
+          width={image.width}
+          height={image.height}
           className={style.graphic} />
       </div>
     </section>

@@ -1,6 +1,7 @@
+// @ts-ignore
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
 
-import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js';
-import PhotoSwipe from 'photoswipe/dist/photoswipe.esm.js';
 import { useEffect, VoidFunctionComponent } from 'react';
 
 export const PhotoSwipeInitializer: VoidFunctionComponent = (): null => {
@@ -8,7 +9,8 @@ export const PhotoSwipeInitializer: VoidFunctionComponent = (): null => {
     const lightbox = new PhotoSwipeLightbox({
       gallery: 'div[data-pswp-container]',
       children: 'a',
-      pswpModule: PhotoSwipe,
+      // @ts-ignore
+      pswpModule: () => import('photoswipe'),
     });
     lightbox.init();
   }, []);

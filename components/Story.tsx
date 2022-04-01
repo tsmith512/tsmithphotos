@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import { processedImage } from '../lib/images';
 import style from '../styles/story.module.scss';
 
 interface StoryProps {
@@ -9,8 +10,8 @@ interface StoryProps {
 
 export const Story: React.FC<StoryProps> = (props): ReactElement => {
   const filename = props.filename;
-  const link = require(`../photos/${filename}?resize&size=1600`);
-  const srcset = require(`../photos/${filename}?resize&sizes[]=400&sizes[]=600&sizes[]=800&sizes[]=1200`);
+  const image = processedImage(filename);
+
 
   return (
     <section className={style.container} data-align={props.copy}>
@@ -21,17 +22,17 @@ export const Story: React.FC<StoryProps> = (props): ReactElement => {
       </div>
       <div className={style.photoPanel} data-pswp-container>
         <a
-          href={link}
-          data-pswp-width={link.width}
-          data-pswp-height={link.height}
+          href={image.fullSrc}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
           data-cropped="true"
           target="_blank">
           <img
-            src={srcset.src}
-            srcSet={srcset.srcSet}
+            src={image.fullSrc}
+            srcSet={image.srcSet}
             sizes='(min-width: 1200px) 600px, 100vw'
-            width={srcset.width}
-            height={srcset.height}
+            width={image.width}
+            height={image.height}
             className={style.photo} />
         </a>
       </div>

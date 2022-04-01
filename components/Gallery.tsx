@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import { processedImage } from '../lib/images';
 import style from '../styles/gallery.module.scss';
 
 interface GalleryProps {
@@ -21,27 +22,25 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
     <section className={style.container} >
       <div className={options.join(' ')} data-pswp-container data-row={row} data-count={photos.length}>
         {photos.map(src => {
-          const url = `/photos/${src}`;
-          const link = require(`../photos/${src}?resize&size=1600`);
-          const srcset = require(`../photos/${src}?resize&sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800`);
+          const image = processedImage(src);
 
           return (
             <a
               key={src}
-              href={link}
+              href={image.fullSrc}
               className={style.thumbLink}
-              data-pswp-width={link.width}
-              data-pswp-height={link.height}
+              data-pswp-width={image.width}
+              data-pswp-height={image.height}
               data-cropped="true"
               target="_blank">
               <div className={style.thumbIRContainer}>
                 <img
                   className={style.thumbImg}
-                  src={srcset.src}
-                  srcSet={srcset.srcSet}
+                  src={image.fullSrc}
+                  srcSet={image.srcSet}
                   sizes={`(min-width: 720px) ${pair ? '600px' : '400px'}, 50vw`}
-                  width={srcset.width}
-                  height={srcset.height}
+                  width={image.width}
+                  height={image.height}
                   loading="lazy"
                 />
               </div>
