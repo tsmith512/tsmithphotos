@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "bin/setup.sh",
+    "prebuild": "bin/setup.sh && node bin/batch-resize.js",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"

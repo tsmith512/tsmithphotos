@@ -21,7 +21,7 @@ export const processedImage = (original: string): imageProps => {
   const directory = album.replace(/[^A-Z0-9]/g, '');
 
   // @TODO: This is a dumb way for this to work
-  const metadata: any = require('../photos/metadata.json');
+  const metadata: any = require('../public/_photos/metadata.json');
   const thisMeta: any = metadata[directory][file];
 
   return {
