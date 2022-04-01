@@ -1,5 +1,5 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';

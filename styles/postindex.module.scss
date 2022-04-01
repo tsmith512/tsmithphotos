@@ -1,46 +1,94 @@
+@use "sass:math";
+
 @import 'variables';
 
+$split-box: math.div(450px, 16px) * 1rem;
+
 .container {
-  @include section($max-width);
-
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-
-  @media screen and (min-width: $typography-expand) {
-    flex-flow: row wrap;
-  }
+  @include section($gallery-expand);
 }
 
 .box {
-  padding: 0.5rem;
-
-  @media screen and (min-width: $typography-expand) {
-    // width: 30%;
-    flex-basis: 50%;
-  }
-
-  @media screen and (min-width: $wide-columns) {
-    flex-basis: 33.3%;
-  }
+  margin: 2rem auto;
 }
 
 .link {
   display: block;
   position: relative;
-  overflow: hidden;
 
-  > div {
-    padding-top: calc(2/3 * 100%);
+  min-height: math.div($gallery-expand, 2);
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   &:hover {
     .image {
-      filter: blur(0) brightness(1);
+      filter: saturate(0) brightness(1);
+    }
+
+    .title {
+      color: $bright;
+      font-family: $cyclone-fill;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    }
+
+    .subhead {
+      color: #fff;
     }
   }
 }
 
+.header {
+  @media screen and (max-width: $split-box) {
+    overflow: hidden;
+  }
+}
+
+.title {
+  display: block;
+  position: relative;
+  z-index: 5;
+
+
+  float: right;
+  margin: 2rem 1rem 1rem 2rem;
+
+  text-align: right;
+  color: $highlight;
+  font-family: $cyclone-outline;
+  line-height: 0.875;
+  font-size: 3rem;
+
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+
+  @media screen and (min-width: math.div(420px, 16px) * 1rem) {
+    font-size: 4rem;
+  }
+  @media screen and (min-width: math.div(560px, 16px) * 1rem) {
+    font-size: 6rem;
+  }
+  @media screen and (min-width: math.div(640px, 16px) * 1rem) {
+    font-size: 7rem;
+  }
+}
+
+.ir {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-bottom: 50%;
+
+  @media screen and (max-width: $split-box) {
+    margin-bottom: -25%
+  }
+  @media screen and (min-width: $split-box) {
+    position: absolute;
+    z-index: 1;
+  }
+}
 
 .image {
   position: absolute;
@@ -49,25 +97,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px) brightness(0.5);
-  transition: 0.25s filter ease;
+  filter: saturate(0) brightness(0.8);
+  // transition: 0.125s filter ease;
 }
 
-.title {
-  display: block;
-  position: absolute;
+.subhead {
+  color: #ccc;
 
-  left: 1rem;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  text-align: center;
-
-  color: white;
-  text-shadow: 1px 1px 0 black;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 1.125rem;
-  font-weight: bold;
+  @media screen and (min-width: $split-box) {
+    float: right;
+    margin: 0 2rem 0 0;
+    width: calc(50% - 3rem);
+  }
 }

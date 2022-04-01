@@ -8,6 +8,21 @@ $typography-expand: math.div(680px, 16px) * 1rem;
 $wide-columns: math.div(960px, 16px) * 1rem;
 $gallery-expand: math.div(720px, 16px) * 1rem;
 
+// Typography
+
+$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+
+$cyclone-outline: "Cyclone A", "Cyclone B", $sans;
+$cyclone-inline: "Cyclone Inline A", "Cyclone Inline B", $sans;
+$cyclone-fill: "Cyclone Background A", "Cyclone Background B", $sans;
+
+$verlag: "Verlag A", "Verlag B", $sans;
+
+// Colors:
+$bright: #00DFFC;
+$highlight: #00B4CC;
+$chill: #008C9E;
+
 // Mixins
 
 @mixin section($max: $max-width, $min: 0) {

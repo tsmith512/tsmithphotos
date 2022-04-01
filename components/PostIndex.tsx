@@ -16,18 +16,23 @@ export const PostIndex = (props: PostIndexProps) => {
     return (
       <div className={style.box} key={post.slug}>
         <a className={style.link} href={post.url}>
-          <div>
-            <img
-              src={image.fullSrc}
-              srcSet={image.srcSet}
-              sizes='(min-width: 1200px) 400px, 100vw'
-              width={image.width}
-              height={image.height}
-              className={style.image} />
-            <span className={style.title}>
+          <div className={style.header}>
+            <div className={style.ir}>
+              <img
+                src={image.fullSrc}
+                srcSet={image.srcSet}
+                sizes='(min-width: 1200px) 400px, 100vw'
+                width={image.width}
+                height={image.height}
+                className={style.image} />
+            </div>
+            <h1 className={style.title}>
               {post.data.title}
-            </span>
+            </h1>
           </div>
+          <p className={style.subhead}>
+            {post.data.subhead}
+          </p>
         </a>
       </div>
     );

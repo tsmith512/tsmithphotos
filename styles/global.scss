@@ -8,8 +8,7 @@
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: $verlag;
 
   font-size: 100%;
   line-height: 1.5;
@@ -32,7 +31,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: $cyclone-outline;
   font-size: 2.25rem;
+  line-height: 0.875;
+  letter-spacing: 2px;
   @media (min-width: $typography-expand) {
     font-size: 3rem;
   }
@@ -52,9 +54,13 @@ h3 {
   }
 }
 
+a {
+  color: $highlight;
+  text-decoration: none;
+}
+
 .subhead {
   font-weight: 300;
-  font-style: italic;
   font-size: 1.25rem;
   @media (min-width: $typography-expand) {
     font-size: 1.5rem;
