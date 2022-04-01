@@ -7,8 +7,10 @@ export const Header = () => {
   return (
     <header className={style.container}>
       <h1 className={style.logo}>
-        <Link href="/">
-          <img src={require('../public/gfx/logo.svg')} aria-label="Taylor Smith" />
+        <Link href="/" passHref>
+          <a>
+            <img src={require('../public/gfx/logo.svg')} aria-label="Taylor Smith" />
+          </a>
         </Link>
       </h1>
     </header>
