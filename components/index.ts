@@ -9,3 +9,5 @@ export { PostIndex } from './PostIndex';
 export { Date, Subhead } from './Typography';
 export { Story } from './Story';
 export { Text } from './Text';
+export { Footer } from './Footer';
+export { Header } from './Header';
