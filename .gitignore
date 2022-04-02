@@ -42,3 +42,6 @@ public/_photos
 
 bin/*
 !bin/setup.sh
+!bin/batch-resize.js
+
+.env
