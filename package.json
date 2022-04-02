@@ -6,9 +6,11 @@
     "prebuild": "bin/setup.sh && node bin/batch-resize.js",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --check \"**/*.ts\" \"**/*.tsx\""
   },
   "dependencies": {
+    "eslint-config-prettier": "^8.5.0",
     "gray-matter": "^4.0.3",
     "image-trace-loader": "^1.0.2",
     "imagemin-mozjpeg": "^9.0.0",
@@ -21,6 +23,7 @@
     "next-transpile-modules": "^9.0.0",
     "normalize.css": "^8.0.1",
     "photoswipe": "^5.2",
+    "prettier": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "responsive-loader": "^2.3.0",
