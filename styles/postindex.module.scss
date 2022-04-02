@@ -81,6 +81,36 @@ $split-box: math.div(450px, 16px) * 1rem;
   height: 0;
   padding-bottom: 50%;
 
+  &:before {
+    content: " ";
+    /* background: red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
+    border-top: 1rem solid #111;
+    border-left: 1rem solid #111;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+  }
+
+  &:after {
+    content: " ";
+    /* background: red; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
+    border-top: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid #111;
+    border-bottom: 1rem solid #111;
+  }
+
   @media screen and (max-width: $split-box) {
     margin-bottom: -25%
   }
