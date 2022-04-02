@@ -104,6 +104,8 @@ $split-box: math.div(450px, 16px) * 1rem;
 .subhead {
   color: #ccc;
 
+  margin: 1rem 1rem 2rem 1rem;
+
   @media screen and (min-width: $split-box) {
     float: right;
     margin: 0 2rem 0 0;

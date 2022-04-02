@@ -1,20 +1,26 @@
+@use "sass:math";
+
 @import 'variables';
 
 .container {
   z-index: 10;
-  margin-bottom: -2rem;
-
-  @media screen and (min-width: $typography-expand) {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .logo {
-  margin: 1rem;
+  margin: 0.5rem;
 
   img {
-    width: 80px;
+    width: 60px;
+  }
+
+  @media screen and (min-width: math.div(400px, 16px) * 1rem) {
+    margin: 1rem;
+
+    img {
+      width: 80px;
+    }
   }
 }

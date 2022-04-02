@@ -1,7 +1,27 @@
-import type { NextPage } from 'next';
+import React from 'react';
+
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
-const Home: NextPage = () => {
+import { albumArchives, getPosts, PostInterface } from '../lib/posts';
+import { Masthead, PostIndex, Subhead } from '../components';
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const allAlbums = albumArchives.map(archive => getPosts(archive)).flat();
+
+  return {
+    props: {
+      posts: allAlbums,
+    }
+  }
+}
+
+interface AllAlbumsInterface {
+  posts: PostInterface[];
+}
+
+const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
+
   return (
     <div>
       <Head>
@@ -11,9 +31,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>
-          Hello World
-        </h1>
+        <Masthead title="Taylor Smith">
+          <Subhead>A simple photo blog.</Subhead>
+        </Masthead>
+        {posts?.length && (<PostIndex posts={posts} />) }
       </main>
     </div>
   );

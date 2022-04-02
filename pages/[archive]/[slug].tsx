@@ -5,9 +5,9 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 
 import { albumArchives, ArchiveInterface, getPostMeta, getPosts, PostInterface, PostMetaInterface } from '../../lib/posts';
-import { Album, Gallery, Photo, Story, Text, Subhead } from '../../components';
+import { Album, Gallery, Photo, Story, Text, Subhead, Masthead } from '../../components';
 
-const AllowedComponents = { Gallery, Photo, Story, Text, Subhead };
+const AllowedComponents = { Gallery, Photo, Story, Text, Subhead, Masthead };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params?.archive || !context.params?.slug) {
