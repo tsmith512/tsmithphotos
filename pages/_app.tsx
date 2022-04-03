@@ -9,13 +9,17 @@ function TSmithPhotos({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6795652/6779432/css/fonts.css" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cloud.typography.com/6795652/6779432/css/fonts.css"
+        />
       </Head>
       <Header />
       <Component {...pageProps} />
       <Footer />
     </>
-  )
+  );
 }
 
 export default TSmithPhotos;

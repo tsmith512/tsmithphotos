@@ -1,7 +1,13 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React from 'react';
 
-import { albumArchives, ArchiveInterface, getPosts, PostInterface, PostMetaInterface } from '../lib/posts';
+import {
+  albumArchives,
+  ArchiveInterface,
+  getPosts,
+  PostInterface,
+  PostMetaInterface,
+} from '../lib/posts';
 import { Masthead, PostIndex, Subhead, Text } from '../components';
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -11,14 +17,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  const archiveName = (context.params.archive instanceof Array)
-    ? context.params.archive[0]
-    : context.params.archive;
+  const archiveName =
+    context.params.archive instanceof Array
+      ? context.params.archive[0]
+      : context.params.archive;
 
-  const archive = albumArchives.find(a => a.slug === archiveName);
+  const archive = albumArchives.find((a) => a.slug === archiveName);
 
   if (!archive) {
-    return { notFound: true, };
+    return { notFound: true };
   }
 
   return {
@@ -31,17 +38,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: albumArchives.map(a => {
-      return { params: { archive: a.slug } }
+    paths: albumArchives.map((a) => {
+      return { params: { archive: a.slug } };
     }),
     fallback: false,
   };
 };
 
 interface IndexInterface {
-  archive: ArchiveInterface,
-  posts: PostInterface[] | undefined,
-};
+  archive: ArchiveInterface;
+  posts: PostInterface[] | undefined;
+}
 
 const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
   return (
@@ -50,9 +57,9 @@ const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
         <Subhead>Taylor Smith</Subhead>
       </Masthead>
 
-      {posts?.length && (<PostIndex posts={posts} />) }
+      {posts?.length && <PostIndex posts={posts} />}
     </main>
-  )
+  );
 };
 
 export default IndexPage;

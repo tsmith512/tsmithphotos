@@ -1,8 +1,8 @@
 import style from '../styles/masthead.module.scss';
 
 interface MastheadProps {
-  children?: any,
-  title: string,
+  children?: any;
+  title: string;
 }
 
 export const Masthead = (props: MastheadProps) => {
@@ -14,4 +14,4 @@ export const Masthead = (props: MastheadProps) => {
       </div>
     </section>
   );
-}
+};

@@ -7,21 +7,20 @@ import { albumArchives, getPosts, PostInterface } from '../lib/posts';
 import { Masthead, PostIndex, Subhead } from '../components';
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const allAlbums = albumArchives.map(archive => getPosts(archive)).flat();
+  const allAlbums = albumArchives.map((archive) => getPosts(archive)).flat();
 
   return {
     props: {
       posts: allAlbums,
-    }
-  }
-}
+    },
+  };
+};
 
 interface AllAlbumsInterface {
   posts: PostInterface[];
 }
 
 const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
-
   return (
     <div>
       <Head>
@@ -34,10 +33,10 @@ const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
         <Masthead title="Taylor Smith">
           <Subhead>A simple photo blog.</Subhead>
         </Masthead>
-        {posts?.length && (<PostIndex posts={posts} />) }
+        {posts?.length && <PostIndex posts={posts} />}
       </main>
     </div>
   );
-}
+};
 
 export default Home;

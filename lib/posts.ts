@@ -4,27 +4,27 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 export interface ArchiveInterface {
-  slug: string,
-  title: string,
-  root: string,
-  sort: string,
-};
+  slug: string;
+  title: string;
+  root: string;
+  sort: string;
+}
 
 export interface PostMetaInterface {
-  title: string,
-  date: string,
-  image: string,
-  subhead?: string,
-  intro?: string,
-};
+  title: string;
+  date: string;
+  image: string;
+  subhead?: string;
+  intro?: string;
+}
 
 export interface PostInterface {
-  slug: string,
-  file: string,
-  url: string,
-  data: PostMetaInterface,
-  archive: ArchiveInterface,
-  content: string,
+  slug: string;
+  file: string;
+  url: string;
+  data: PostMetaInterface;
+  archive: ArchiveInterface;
+  content: string;
 }
 
 export const albumArchives: ArchiveInterface[] = [
@@ -52,7 +52,10 @@ export const getPosts = (archive: ArchiveInterface) => {
   return posts;
 };
 
-export const getPostMeta = (archive: ArchiveInterface, filename: string): PostInterface => {
+export const getPostMeta = (
+  archive: ArchiveInterface,
+  filename: string
+): PostInterface => {
   const slug = filename.replace(/\.mdx?$/, '');
   const postFile = join(archive.root, filename);
 
@@ -64,13 +67,16 @@ export const getPostMeta = (archive: ArchiveInterface, filename: string): PostIn
     slug,
     file: postFile,
     url: `/${archive.slug}/${slug}`,
-    data: Object.assign({
-      // This is to make type validation happy. This whole thing will explode
-      // if these three keys aren't in the frontmatter of all posts.
-      title: '',
-      date: '',
-      image: '',
-    }, data),
+    data: Object.assign(
+      {
+        // This is to make type validation happy. This whole thing will explode
+        // if these three keys aren't in the frontmatter of all posts.
+        title: '',
+        date: '',
+        image: '',
+      },
+      data
+    ),
     archive,
     content,
   };
