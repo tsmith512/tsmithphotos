@@ -4,7 +4,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 import { albumArchives, getPosts, PostInterface } from '../lib/posts';
-import { Masthead, PostIndex, Subhead } from '../components';
+import { Masthead, Nav, PostIndex, Subhead } from '../components';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const allAlbums = albumArchives.map((archive) => getPosts(archive)).flat();
@@ -32,6 +32,7 @@ const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
       <main>
         <Masthead title="Taylor Smith">
           <Subhead>A simple photo blog.</Subhead>
+          <Nav />
         </Masthead>
         {posts?.length && <PostIndex posts={posts} />}
       </main>

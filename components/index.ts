@@ -11,3 +11,4 @@ export { Story } from './Story';
 export { Text } from './Text';
 export { Footer } from './Footer';
 export { Header } from './Header';
+export { Nav } from './Nav';
