@@ -89,6 +89,11 @@
   @media screen and (min-width: $gallery-expand) {
     height: 0;
     padding-top: 66%;
+
+    .vertical & {
+      height: auto;
+      padding-top: 0;
+    }
   }
 }
 
@@ -103,6 +108,10 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    .vertical & {
+      position: relative;
+    }
   }
 }
 

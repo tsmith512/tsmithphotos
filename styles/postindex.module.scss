@@ -26,7 +26,7 @@ $split-box: math.div(450px, 16px) * 1rem;
 
   &:hover {
     .image {
-      filter: saturate(0) brightness(1);
+      filter: saturate(1) brightness(0.9);
     }
 
     .title {
@@ -128,7 +128,7 @@ $split-box: math.div(450px, 16px) * 1rem;
   height: 100%;
   object-fit: cover;
   filter: saturate(0) brightness(0.8);
-  // transition: 0.125s filter ease;
+  transition: 0.75s filter ease;
 }
 
 .subhead {

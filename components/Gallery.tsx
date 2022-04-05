@@ -6,6 +6,7 @@ interface GalleryProps {
   children?: any;
   filenames: string[];
   row?: boolean | null;
+  vertical?: boolean | null;
 }
 
 export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
@@ -17,6 +18,10 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
   const options = [style.thumbPanel];
   if (row) {
     options.push(style.row);
+  }
+
+  if (props.vertical) {
+    options.push(style.vertical)
   }
 
   return (
