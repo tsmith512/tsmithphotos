@@ -31,7 +31,6 @@ const run = async () => {
     const filename = path.parse(file);
     const directory = filename.dir.split('/').pop().replace(/[^A-Z0-9]/g, '');
     const { name, ext } = filename;
-    console.log(`Resizing ${directory}/${filename.base}`);
 
     fs.mkdirSync(path.join(outputPath, directory), { recursive: true });
 
@@ -48,8 +47,14 @@ const run = async () => {
         width,
         height,
       };
-    })
+    });
 
+    if (fs.existsSync(path.join(outputPath, directory, `${name}${ext}`))) {
+      console.log(`Found ${directory}/${filename.base}`);
+      continue;
+    }
+
+    console.log(`Resizing ${directory}/${filename.base}`);
     await Promise.all([
       original.clone().toFile(path.join(outputPath, directory, `${name}${ext}`)),
       original.clone().resize(1600).toFile(path.join(outputPath, directory, `${name}-1600${ext}`)),
