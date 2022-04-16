@@ -9,6 +9,7 @@ import {
   PostMetaInterface,
 } from '../lib/posts';
 import { Masthead, PostIndex, Subhead, Text } from '../components';
+import Head from 'next/head';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params?.archive) {
@@ -52,13 +53,20 @@ interface IndexInterface {
 
 const IndexPage: NextPage<IndexInterface> = ({ archive, posts }) => {
   return (
-    <main>
-      <Masthead title={archive.title}>
-        <Subhead>Taylor Smith</Subhead>
-      </Masthead>
+    <>
+      <Head>
+        <title>{archive.title} | Taylor Smith</title>
+        <meta name="description" content="" />
+      </Head>
 
-      {posts?.length && <PostIndex posts={posts} />}
-    </main>
+      <main>
+        <Masthead title={archive.title}>
+          <Subhead>Taylor Smith</Subhead>
+        </Masthead>
+
+        {posts?.length && <PostIndex posts={posts} />}
+      </main>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ import {
   PostMetaInterface,
 } from '../../lib/posts';
 import { Album, Gallery, Photo, Story, Text, Subhead, Masthead } from '../../components';
+import Head from 'next/head';
 
 const AllowedComponents = { Gallery, Photo, Story, Text, Subhead, Masthead };
 
@@ -74,9 +75,16 @@ interface AlbumPageInterface {
 
 const AlbumPage: NextPage<AlbumPageInterface> = ({ post, archive, content }) => {
   return (
-    <Album post={post} archive={archive}>
-      <MDXRemote components={AllowedComponents} {...content} scope={{ scope: 'test' }} />
-    </Album>
+    <>
+      <Head>
+        <title>{post.data.title} | Taylor Smith</title>
+        <meta name="description" content="" />
+      </Head>
+
+      <Album post={post} archive={archive}>
+        <MDXRemote components={AllowedComponents} {...content} scope={{ scope: 'test' }} />
+      </Album>
+    </>
   );
 };
 
