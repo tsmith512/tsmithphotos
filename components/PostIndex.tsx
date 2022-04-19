@@ -20,7 +20,7 @@ export const PostIndex = (props: PostIndexProps) => {
               <img
                 src={image.fullSrc}
                 srcSet={image.srcSet}
-                sizes="(min-width: 1200px) 400px, 100vw"
+                sizes="(min-width: 1200px) 600px, 100vw"
                 width={image.width}
                 height={image.height}
                 className={style.image}

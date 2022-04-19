@@ -138,6 +138,7 @@ $split-box: math.div(450px, 16px) * 1rem;
 
   @media screen and (min-width: $split-box) {
     float: right;
+    clear: right;
     margin: 0 2rem 0 0;
     width: calc(50% - 3rem);
   }
