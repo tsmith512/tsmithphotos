@@ -5,16 +5,14 @@ import { ReactElement } from 'react';
 
 import { BackButton, Banner, Date, PhotoSwipeInitializer, Subhead } from './index';
 
-import { ArchiveInterface, PostInterface } from '../lib/posts';
+import { PostInterface } from '../lib/posts';
 
 interface AlbumProps {
   post: PostInterface;
-  archive: ArchiveInterface;
 }
 
 export const Album: React.FC<AlbumProps> = ({
   post,
-  archive,
   children,
 }): ReactElement => {
   return (
@@ -24,7 +22,7 @@ export const Album: React.FC<AlbumProps> = ({
       </Head>
 
       <Banner filename={post.data.image}>
-        <BackButton url={'/' + archive.slug}>{archive.title}</BackButton>
+        <BackButton url={'/'}>Back</BackButton>
         <h1>{post.data.title}</h1>
         {post.data.date && <Date>{post.data.date}</Date>}
         {post.data.subhead && <Subhead>{post.data.subhead}</Subhead>}

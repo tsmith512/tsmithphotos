@@ -3,16 +3,9 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
-export interface ArchiveInterface {
-  slug: string;
-  title: string;
-  root: string;
-  sort: string;
-}
-
 export interface PostMetaInterface {
   title: string;
-  date: string;
+  date?: string;
   image: string;
   subhead?: string;
   intro?: string;
@@ -23,41 +16,38 @@ export interface PostInterface {
   file: string;
   url: string;
   data: PostMetaInterface;
-  archive: ArchiveInterface;
   content: string;
 }
 
-export const albumArchives: ArchiveInterface[] = [
-  {
-    slug: 'adventures',
-    title: 'Adventures',
-    root: join(process.cwd(), '_adventures'),
-    sort: 'date',
-  },
-  {
-    slug: 'hobbies',
-    title: 'Hobbies',
-    root: join(process.cwd(), '_hobbies'),
-    sort: 'date',
-  },
-];
-
-export const getPosts = (archive: ArchiveInterface) => {
-  const files = fs.readdirSync(archive.root);
+export const getPosts = () => {
+  const files = fs.readdirSync(join(process.cwd(), '_posts'));
 
   const posts = files
-    .map((file) => getPostMeta(archive, file))
-    .sort((p1, p2) => (p1.data.date > p2.data.date ? -1 : 1));
+    .map((file) => getPostMeta(file))
+    .sort((a, b) => {
+      // If one has a date but the other doesn't...
+      if (a.data.date && !b.data.date) { return -1 }
+      else if (!a.data.date && b.data.date) { return 1 }
+
+      // If both are dated, sort on date...
+      else if (a.data.date && b.data.date) {
+        return (a.data.date < b.data.date) ? 1 : -1;
+      }
+
+      // Otherwise, sort on title
+      else {
+        return (a.data.title > b.data.title) ? 1 : -1;
+      }
+    });
 
   return posts;
 };
 
 export const getPostMeta = (
-  archive: ArchiveInterface,
   filename: string
 ): PostInterface => {
   const slug = filename.replace(/\.mdx?$/, '');
-  const postFile = join(archive.root, filename);
+  const postFile = join('_posts', filename);
 
   const fileContents = fs.readFileSync(postFile, 'utf8');
 
@@ -66,7 +56,7 @@ export const getPostMeta = (
   return {
     slug,
     file: postFile,
-    url: `/${archive.slug}/${slug}`,
+    url: `/${slug}`,
     data: Object.assign(
       {
         // This is to make type validation happy. This whole thing will explode
@@ -77,7 +67,6 @@ export const getPostMeta = (
       },
       data
     ),
-    archive,
     content,
   };
 };
