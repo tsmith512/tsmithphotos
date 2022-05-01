@@ -21,7 +21,7 @@ export const Gallery: React.FC<GalleryProps> = (props): ReactElement => {
   }
 
   if (props.vertical) {
-    options.push(style.vertical)
+    options.push(style.vertical);
   }
 
   return (

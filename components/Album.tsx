@@ -11,10 +11,7 @@ interface AlbumProps {
   post: PostInterface;
 }
 
-export const Album: React.FC<AlbumProps> = ({
-  post,
-  children,
-}): ReactElement => {
+export const Album: React.FC<AlbumProps> = ({ post, children }): ReactElement => {
   return (
     <main>
       <Head>

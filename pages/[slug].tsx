@@ -4,12 +4,7 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 
-import {
-  getPostMeta,
-  getPosts,
-  PostInterface,
-  PostMetaInterface,
-} from '../lib/posts';
+import { getPostMeta, getPosts, PostInterface, PostMetaInterface } from '../lib/posts';
 import { Album, Gallery, Photo, Story, Text, Subhead, Masthead } from '../components';
 import Head from 'next/head';
 
@@ -66,7 +61,11 @@ const AlbumPage: NextPage<AlbumPageInterface> = ({ post, content }) => {
       </Head>
 
       <Album post={post}>
-        <MDXRemote components={AllowedComponents} {...content} scope={{ scope: 'test' }} />
+        <MDXRemote
+          components={AllowedComponents}
+          {...content}
+          scope={{ scope: 'test' }}
+        />
       </Album>
     </>
   );

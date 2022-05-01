@@ -7,7 +7,11 @@ export const Nav = () => {
   return (
     <nav className={style.navContainer}>
       <ul className={style.navList}>
-        <li><Link passHref href="/about/"><a>About</a></Link></li>
+        <li>
+          <Link passHref href="/about/">
+            <a>About</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );

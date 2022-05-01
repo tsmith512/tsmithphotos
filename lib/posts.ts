@@ -26,26 +26,27 @@ export const getPosts = () => {
     .map((file) => getPostMeta(file))
     .sort((a, b) => {
       // If one has a date but the other doesn't...
-      if (a.data.date && !b.data.date) { return -1 }
-      else if (!a.data.date && b.data.date) { return 1 }
+      if (a.data.date && !b.data.date) {
+        return -1;
+      } else if (!a.data.date && b.data.date) {
+        return 1;
+      }
 
       // If both are dated, sort on date...
       else if (a.data.date && b.data.date) {
-        return (a.data.date < b.data.date) ? 1 : -1;
+        return a.data.date < b.data.date ? 1 : -1;
       }
 
       // Otherwise, sort on title
       else {
-        return (a.data.title > b.data.title) ? 1 : -1;
+        return a.data.title > b.data.title ? 1 : -1;
       }
     });
 
   return posts;
 };
 
-export const getPostMeta = (
-  filename: string
-): PostInterface => {
+export const getPostMeta = (filename: string): PostInterface => {
   const slug = filename.replace(/\.mdx?$/, '');
   const postFile = join('_posts', filename);
 
