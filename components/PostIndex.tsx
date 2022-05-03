@@ -4,17 +4,17 @@ import { PostInterface } from '../lib/posts';
 import { processedImage } from '../lib/images';
 
 interface PostIndexProps {
-  posts: PostInterface[];
+  post: PostInterface;
 }
 
 export const PostIndex = (props: PostIndexProps) => {
-  const buttons = props.posts.map((post) => {
-    const filename = post.data.image;
-    const image = processedImage(filename);
+  const filename = props.post.data.image;
+  const image = processedImage(filename);
 
-    return (
-      <div className={style.box} key={post.slug}>
-        <a className={style.link} href={post.url}>
+  return (
+    <div className={style.container}>
+      <div className={style.box} key={props.post.slug}>
+        <a className={style.link} href={props.post.url}>
           <div className={style.header}>
             <div className={style.ir}>
               <img
@@ -26,13 +26,11 @@ export const PostIndex = (props: PostIndexProps) => {
                 className={style.image}
               />
             </div>
-            <h1 className={style.title}>{post.data.title}</h1>
+            <h1 className={style.title}>{props.post.data.title}</h1>
           </div>
-          <p className={style.subhead}>{post.data.subhead}</p>
+          <p className={style.subhead}>{props.post.data.subhead}</p>
         </a>
       </div>
-    );
-  });
-
-  return <main className={style.container}>{buttons.map((button) => button)}</main>;
+    </div>
+  );
 };
