@@ -39,7 +39,7 @@ export const makeSrcSet = (dir: string, file: string, ext: string): string => {
   return imageSizes
     .reduce(
       (srcSet: string, size: number) =>
-        `${srcSet}, /_photos/${dir}/${file}-${size}.${ext} ${size}w`,
+        `${srcSet}, ` + encodeURI(`/_photos/${dir}/${file}-${size}.${ext}`) + ` ${size}w`,
       ''
     )
     .trim()
