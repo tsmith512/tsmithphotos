@@ -13,6 +13,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // in the index. That's fine for now, but I should probably have a fallback.
   const preferredOrder = [
     'west-texas',
+    'coronaroadtrip',
     'climbing',
     'austin-covid-shutdown',
     'austin-to-alaska',
