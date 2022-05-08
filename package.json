@@ -5,6 +5,7 @@
     "dev": "next dev",
     "prebuild": "bin/setup.sh && node bin/batch-resize.js",
     "build": "next build && next export",
+    "postbuild": "bin/find-unused.sh",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write \"**/*.ts\" \"**/*.tsx\"",
