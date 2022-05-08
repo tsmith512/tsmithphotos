@@ -1,10 +1,9 @@
-import fs from 'fs';
-
 export interface imageProps {
   original: string;
   filename: string;
   directory: string;
   fullSrc: string;
+  socialSrc: string;
   width: number;
   height: number;
   srcSet: string;
@@ -31,6 +30,7 @@ export const processedImage = (original: string): imageProps => {
     width: thisMeta.width,
     height: thisMeta.height,
     fullSrc: `/_photos/${directory}/${file}.${ext}`,
+    socialSrc: `/_photos/${directory}/${file}-800.${ext}`,
     srcSet: makeSrcSet(directory, file, ext),
   };
 };

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export $(grep -v '^#' .env | xargs)
+export $(grep -v '^#' .env.local | xargs)
 
 ## Step 1: Get AWS CLI
 # Is this pre-installed?
