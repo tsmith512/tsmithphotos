@@ -50,7 +50,6 @@ const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
 
       <main>
         <Masthead title="Taylor Smith">
-          <Subhead>A simple photo blog.</Subhead>
           <Nav />
         </Masthead>
         {posts?.length && posts.map((post) => <PostIndex key={post.slug} post={post} />)}

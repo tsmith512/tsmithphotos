@@ -78,13 +78,35 @@
   .thumbPanel[data-count = "11"] &:nth-child(11n+11) {
     flex-basis: 25%
   }
+
+  .thumbPanel[data-count = "13"] &:nth-child(13n+1),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+2),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+3),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+4) {
+    flex-basis: 25%
+  }
+
+  .thumbPanel[data-count = "13"] &:nth-child(13n+5),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+6),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+7),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+8),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+9) {
+    flex-basis: 20%
+  }
+
+  .thumbPanel[data-count = "13"] &:nth-child(13n+10),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+11),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+12),
+  .thumbPanel[data-count = "13"] &:nth-child(13n+13) {
+    flex-basis: 25%
+  }
 }
 
 .thumbIRContainer {
   position: relative;
   display: block;
 
-  margin: 0.5rem;
+  margin: 0.25rem;
 
   @media screen and (min-width: $gallery-expand) {
     height: 0;
@@ -94,6 +116,10 @@
       height: auto;
       padding-top: 0;
     }
+  }
+
+  @media screen and (min-width: $wide-columns) {
+    margin: 0.5rem;
   }
 }
 

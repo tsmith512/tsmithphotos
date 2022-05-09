@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Banner, Subhead, Text } from '../components';
+import { Banner, Subhead, Text, BackButton } from '../components';
 
 const AboutPage: NextPage = () => {
   return (
@@ -15,6 +15,7 @@ const AboutPage: NextPage = () => {
 
       <main>
         <Banner filename="Adventures - IAH/DSC_9070.jpg">
+          <BackButton url={'/'}>Back</BackButton>
           <h1>About</h1>
           <Subhead>A simple photo blog from a less simple codebase.</Subhead>
         </Banner>

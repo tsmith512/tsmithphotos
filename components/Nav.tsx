@@ -12,6 +12,11 @@ export const Nav = () => {
             <a>About</a>
           </Link>
         </li>
+        <li>
+          <Link passHref href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos">
+            <a>Blog &amp; Portfolio</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
