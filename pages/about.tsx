@@ -8,9 +8,7 @@ const AboutPage: NextPage = () => {
     <div>
       <Head>
         <title>About Taylor Smith</title>
-        <meta name="description" content="Component Library" />
         <meta name="robots" content="noindex" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
@@ -24,12 +22,10 @@ const AboutPage: NextPage = () => {
             In 2002, I talked my dad into registering my first ever domain name,
             tsmithphotos.com. I used it both to fiddle with web development and post up my
             photography hobby, the former ended up being my early career. In college, I
-            switched over to my
-            <a href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos">
-              design and development portfolio
-            </a>
-            , but I didn't want to let this name or the site go. It's been a few different
-            things, built in a few different ways over the years.
+            switched over to my {' '} <a href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos">
+            design portfolio and blog</a>, but I didn't want to let this name or
+            the site go. It's been a few different things, built in a few
+            different ways over the years.
           </p>
 
           <p>
