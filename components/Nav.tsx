@@ -13,7 +13,10 @@ export const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link passHref href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos">
+          <Link
+            passHref
+            href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos"
+          >
             <a>Blog &amp; Portfolio</a>
           </Link>
         </li>

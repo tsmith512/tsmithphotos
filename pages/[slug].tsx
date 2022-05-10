@@ -64,7 +64,10 @@ const AlbumPage: NextPage<AlbumPageInterface> = ({ post, content }) => {
         <meta name="description" content={post.data.subhead} />
         <meta property="og:title" content={post.data.title} />
         <meta property="og:description" content={post.data.subhead} />
-        <meta property="og:image" content={process.env.NEXT_PUBLIC_SITE_DOMAIN + image.socialSrc} />
+        <meta
+          property="og:image"
+          content={process.env.NEXT_PUBLIC_SITE_DOMAIN + image.socialSrc}
+        />
       </Head>
 
       <Album post={post}>

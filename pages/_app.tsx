@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 import '../styles/global.scss';
 import { Header, Footer } from '../components';
@@ -20,11 +20,11 @@ function TSmithPhotos({ Component, pageProps }: AppProps) {
           href="https://cloud.typography.com/6795652/6779432/css/fonts.css"
         />
 
-        <meta name='viewport' content='width=device-width' />
+        <meta name="viewport" content="width=device-width" />
 
-        <link rel='canonical'       href={canonincalURL} />
-        <meta property='og:url'  content={canonincalURL} />
-        <meta name='twitter:url' content={canonincalURL} />
+        <link rel="canonical" href={canonincalURL} />
+        <meta property="og:url" content={canonincalURL} />
+        <meta name="twitter:url" content={canonincalURL} />
       </Head>
       <Header />
       <Component {...pageProps} />

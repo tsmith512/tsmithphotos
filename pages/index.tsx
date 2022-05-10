@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      posts: preferredOrder.map(slug => allAlbums.find(album => album.slug == slug)),
+      posts: preferredOrder.map((slug) => allAlbums.find((album) => album.slug == slug)),
     },
   };
 };
