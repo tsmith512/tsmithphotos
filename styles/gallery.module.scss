@@ -37,13 +37,19 @@
   }
 
   .thumbPanel[data-count = "10"] & {
-    flex-basis: 20%;
+    flex-basis: 33%;
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 20%;
+    }
   }
 
   .thumbPanel[data-count = "4"] &,
   .thumbPanel[data-count = "8"] &,
   .thumbPanel[data-count = "12"] & {
-    flex-basis: 25%;
+    flex-basis: 33%;
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 25%;
+    }
   }
 
   .thumbPanel[data-count = "7"] &:nth-child(7n+1),
@@ -56,34 +62,46 @@
   .thumbPanel[data-count = "7"] &:nth-child(7n+5),
   .thumbPanel[data-count = "7"] &:nth-child(7n+6),
   .thumbPanel[data-count = "7"] &:nth-child(7n+7) {
-    flex-basis: 25%
+    flex-basis: 50%;
+
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 25%;
+    }
   }
 
   .thumbPanel[data-count = "11"] &:nth-child(11n+1),
   .thumbPanel[data-count = "11"] &:nth-child(11n+2),
   .thumbPanel[data-count = "11"] &:nth-child(11n+3),
   .thumbPanel[data-count = "11"] &:nth-child(11n+4) {
-    flex-basis: 25%
+    flex-basis: 50%;
+
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 25%;
+    }
   }
 
   .thumbPanel[data-count = "11"] &:nth-child(11n+5),
   .thumbPanel[data-count = "11"] &:nth-child(11n+6),
   .thumbPanel[data-count = "11"] &:nth-child(11n+7) {
-    flex-basis: 33%
+    flex-basis: 33%;
   }
 
   .thumbPanel[data-count = "11"] &:nth-child(11n+8),
   .thumbPanel[data-count = "11"] &:nth-child(11n+9),
   .thumbPanel[data-count = "11"] &:nth-child(11n+10),
   .thumbPanel[data-count = "11"] &:nth-child(11n+11) {
-    flex-basis: 25%
+    flex-basis: 50%;
+
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 25%;
+    }
   }
 
   .thumbPanel[data-count = "13"] &:nth-child(13n+1),
   .thumbPanel[data-count = "13"] &:nth-child(13n+2),
   .thumbPanel[data-count = "13"] &:nth-child(13n+3),
   .thumbPanel[data-count = "13"] &:nth-child(13n+4) {
-    flex-basis: 25%
+    flex-basis: 25%;
   }
 
   .thumbPanel[data-count = "13"] &:nth-child(13n+5),
@@ -91,14 +109,20 @@
   .thumbPanel[data-count = "13"] &:nth-child(13n+7),
   .thumbPanel[data-count = "13"] &:nth-child(13n+8),
   .thumbPanel[data-count = "13"] &:nth-child(13n+9) {
-    flex-basis: 20%
+    // Yes, this math isn't right, but causes a row overflow into the next set
+    // and flexbox evens it all out. Only example of this is on the pets page.
+    flex-basis: 33%;
+
+    @media screen and (min-width: $gallery-expand) {
+      flex-basis: 20%;
+    }
   }
 
   .thumbPanel[data-count = "13"] &:nth-child(13n+10),
   .thumbPanel[data-count = "13"] &:nth-child(13n+11),
   .thumbPanel[data-count = "13"] &:nth-child(13n+12),
   .thumbPanel[data-count = "13"] &:nth-child(13n+13) {
-    flex-basis: 25%
+    flex-basis: 25%;
   }
 }
 
