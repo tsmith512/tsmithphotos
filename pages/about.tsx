@@ -13,7 +13,6 @@ const AboutPage: NextPage = () => {
 
       <main>
         <Banner filename="Adventures - IAH/DSC_9070.jpg">
-          <BackButton url={'/'}>Back</BackButton>
           <h1>About</h1>
           <Subhead>A simple photo blog from a less simple codebase.</Subhead>
         </Banner>

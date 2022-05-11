@@ -19,7 +19,6 @@ export const Album: React.FC<AlbumProps> = ({ post, children }): ReactElement =>
       </Head>
 
       <Banner filename={post.data.image}>
-        <BackButton url={'/'}>Back</BackButton>
         <h1>{post.data.title}</h1>
         {post.data.date && <Date>{post.data.date}</Date>}
         {post.data.subhead && <Subhead>{post.data.subhead}</Subhead>}
