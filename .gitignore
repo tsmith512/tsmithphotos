@@ -35,3 +35,14 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Do not put images in the repo
+photos
+public/_photos
+
+bin/*
+!bin/setup.sh
+!bin/batch-resize.js
+!bin/find-unused.sh
+
+.env

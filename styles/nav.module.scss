@@ -1,0 +1,27 @@
+@import 'variables';
+
+.navContainer {
+
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+
+  li {
+    margin: 0;
+    display: inline-block;
+    padding: 0.25rem 1rem;
+  }
+
+  a {
+    font-family: $cyclone-inline;
+    font-size: 3rem;
+  }
+
+  a:hover {
+    font-family: $cyclone-outline;
+  }
+}

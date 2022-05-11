@@ -1,0 +1,49 @@
+@use "sass:math";
+
+// Sizes / breakpoints
+
+$max-width: math.div(1200px, 16px) * 1rem;
+$max-text-width: 36rem;
+$typography-expand: math.div(680px, 16px) * 1rem;
+$wide-columns: math.div(960px, 16px) * 1rem;
+$gallery-expand: math.div(720px, 16px) * 1rem;
+
+// Typography
+
+$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+
+$cyclone-outline: "Cyclone A", "Cyclone B", $sans;
+$cyclone-inline: "Cyclone Inline A", "Cyclone Inline B", $sans;
+$cyclone-fill: "Cyclone Background A", "Cyclone Background B", $sans;
+
+$verlag: "Verlag A", "Verlag B", $sans;
+
+// Colors:
+$bright: #00DFFC;
+$highlight: #00B4CC;
+$chill: #008C9E;
+
+// Mixins
+
+@mixin section($max: $max-width, $min: 0) {
+  max-width: $max;
+  margin: 4rem $min;
+
+  @media screen and (min-width: calc($max + 2rem)) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: $gallery-expand) {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+}
+
+@mixin subtext() {
+  margin: 0.5rem 4rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #ccc;
+}

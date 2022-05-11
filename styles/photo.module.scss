@@ -1,0 +1,21 @@
+@import 'variables';
+
+.container {
+  @include section();
+}
+
+.photoPanel {
+
+}
+
+.photo {
+  margin: 0 auto;
+  max-height: 90vh;
+  width: 100%;
+
+  object-fit: contain;
+}
+
+.footerPanel {
+  @include subtext();
+}

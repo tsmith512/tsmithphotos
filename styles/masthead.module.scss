@@ -1,0 +1,17 @@
+@import 'variables';
+
+.container {
+  @include section($max-width);
+}
+
+.textPanel {
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 4rem;
+    @media (min-width: $typography-expand) {
+      font-size: 8rem;
+    }
+  }
+}

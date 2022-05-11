@@ -1,0 +1,154 @@
+@use "sass:math";
+
+@import 'variables';
+
+$split-box: math.div(450px, 16px) * 1rem;
+
+.container {
+  @include section($gallery-expand);
+}
+
+.box {
+  margin: 2rem auto;
+}
+
+.link {
+  display: block;
+  position: relative;
+
+  min-height: math.div($gallery-expand, 2);
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  &:hover {
+    .image {
+      filter: saturate(1) brightness(0.9);
+    }
+
+    .title {
+      color: $bright;
+      font-family: $cyclone-fill;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    }
+
+    .subhead {
+      color: #fff;
+    }
+  }
+}
+
+.header {
+  @media screen and (max-width: $split-box) {
+    overflow: hidden;
+  }
+}
+
+.title {
+  display: block;
+  position: relative;
+  z-index: 10;
+
+
+  float: right;
+  margin: 2rem 1rem 1rem 2rem;
+
+  text-align: right;
+  color: $highlight;
+  font-family: $cyclone-fill;
+  line-height: 0.875;
+  font-size: 3rem;
+
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+
+  @media screen and (min-width: math.div(420px, 16px) * 1rem) {
+    font-family: $cyclone-outline;
+    font-size: 4rem;
+  }
+  @media screen and (min-width: math.div(560px, 16px) * 1rem) {
+    font-size: 6rem;
+  }
+  @media screen and (min-width: math.div(640px, 16px) * 1rem) {
+    font-size: 7rem;
+  }
+}
+
+.ir {
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  height: 0;
+  padding-bottom: 75%;
+
+  @media screen and (min-width: $split-box) {
+    width: 50%;
+    padding-bottom: 50%;
+  }
+
+  &:before {
+    content: " ";
+    /* background: red; */
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
+    border-top: 1rem solid #111;
+    border-left: 1rem solid #111;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+  }
+
+  &:after {
+    content: " ";
+    /* background: red; */
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
+    border-top: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid #111;
+    border-bottom: 1rem solid #111;
+  }
+
+  @media screen and (max-width: $split-box) {
+    margin-bottom: -25%
+  }
+  @media screen and (min-width: $split-box) {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0) brightness(0.8);
+  transition: 0.75s filter ease;
+}
+
+.subhead {
+  color: #ccc;
+
+  margin: 1rem 1rem 2rem 1rem;
+
+  @media screen and (min-width: $split-box) {
+    float: right;
+    clear: right;
+    margin: 0 2rem 0 0;
+    width: calc(50% - 3rem);
+  }
+}

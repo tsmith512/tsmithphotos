@@ -1,0 +1,86 @@
+@use "sass:math";
+
+@import 'variables';
+
+.container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  > div {
+    flex: 1 0 50%;
+  }
+
+  @media screen and (min-width: $wide-columns) {
+    flex-direction: row;
+  }
+}
+
+.containerFull {
+  height: 100vh;
+  position: relative;
+
+  .contentPanel {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
+  .content {
+    h1, p {
+      text-align: center;
+      text-shadow: 1px 1px solid rbga(0,0,0,.75);
+      color: white;
+    }
+  }
+}
+
+.contentPanel {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: $wide-columns) {
+    justify-content: flex-start;
+  }
+}
+
+.content {
+  margin: 4rem auto;
+  max-width: calc($max-text-width + 4rem);
+  padding: 0 2rem;
+
+  @media screen and (min-width: math.div(1200px, 16px) * 1rem) {
+    max-width: calc($max-text-width + 8rem);
+    padding: 0 4rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    text-align: right;
+    color: $chill;
+
+    @media screen and (min-width: $typography-expand) {
+      font-size: 5rem;
+    }
+    @media screen and (min-width: math.div(1000px, 16px) * 1rem) {
+      font-size: 6rem;
+    }
+  }
+}
+
+.graphicPanel {
+  height: 100%;
+  overflow: hidden;
+}
+
+.graphic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
