@@ -44,7 +44,7 @@ const AboutPage: NextPage = () => {
 
           <p>
             But I'm back to building by hand, this time using Next.js as a static site
-            builder, but taking images in categories and page building for stories. This
+            builder, but with more components for page building and stories. This
             will likely be a model to rebuild my main website, too, if I ever get around
             to it.
           </p>

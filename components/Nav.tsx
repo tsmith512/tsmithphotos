@@ -17,7 +17,7 @@ export const Nav = () => {
             passHref
             href="https://tsmith.com/?utm_source=tsmithphotos&utm_medium=website&utm_campaign=tsmithphotos"
           >
-            <a>Blog &amp; Portfolio</a>
+            <a>Blog / Portfolio</a>
           </Link>
         </li>
       </ul>
