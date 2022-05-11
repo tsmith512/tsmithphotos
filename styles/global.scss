@@ -73,3 +73,12 @@ a {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
+p {
+  max-width: 40em;
+  margin: 1em auto;
+}
+
+b, strong {
+  font-weight: bold;
+}

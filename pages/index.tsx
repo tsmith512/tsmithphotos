@@ -14,6 +14,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const preferredOrder = [
     'west-texas',
     'coronaroadtrip',
+    'digital-photography-badge-homework',
     'climbing',
     'austin-covid-shutdown',
     'austin-to-alaska',
