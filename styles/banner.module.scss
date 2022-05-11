@@ -17,6 +17,26 @@
   }
 }
 
+.containerFull {
+  height: 100vh;
+  position: relative;
+
+  .contentPanel {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
+  .content {
+    h1, p {
+      text-align: center;
+      text-shadow: 1px 1px solid rbga(0,0,0,.75);
+      color: white;
+    }
+  }
+}
+
 .contentPanel {
   position: relative;
 

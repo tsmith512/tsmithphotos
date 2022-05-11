@@ -12,7 +12,7 @@ const AboutPage: NextPage = () => {
       </Head>
 
       <main>
-        <Banner filename="Adventures - IAH/DSC_9070.jpg">
+        <Banner fullscreen filename="Adventures - West Texas/DSC_8253.jpg">
           <h1>About</h1>
           <Subhead>A simple photo blog from a less simple codebase.</Subhead>
         </Banner>

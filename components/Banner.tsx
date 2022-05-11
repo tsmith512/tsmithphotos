@@ -5,6 +5,7 @@ import { processedImage } from '../lib/images';
 interface BannerProps {
   children?: any;
   filename: string;
+  fullscreen?: boolean;
 }
 
 export const Banner: React.FC<BannerProps> = (props): ReactElement => {
@@ -12,7 +13,7 @@ export const Banner: React.FC<BannerProps> = (props): ReactElement => {
   const image = processedImage(filename);
 
   return (
-    <section className={style.container}>
+    <section className={props.fullscreen ? style.containerFull : style.container}>
       <div className={style.contentPanel}>
         <div className={style.content}>{props.children}</div>
       </div>
@@ -20,7 +21,7 @@ export const Banner: React.FC<BannerProps> = (props): ReactElement => {
         <img
           src={image.fullSrc}
           srcSet={image.srcSet}
-          sizes="(min-width: 960px) 50vw, 100vw"
+          sizes={props.fullscreen ? "100vw" : "(min-width: 960px) 50vw, 100vw"}
           width={image.width}
           height={image.height}
           className={style.graphic}
