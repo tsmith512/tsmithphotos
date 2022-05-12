@@ -1,7 +1,7 @@
 @import 'variables';
 
 .container {
-  @include section($max-text-width);
+  @include section($max-text-width, 1rem);
 }
 
 .textPanel {
