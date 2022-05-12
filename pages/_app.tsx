@@ -29,6 +29,7 @@ function TSmithPhotos({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Footer />
+      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8906f1ffada140cb91acd635ebb13eea"}'></script>
     </>
   );
 }
