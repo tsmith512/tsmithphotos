@@ -1,20 +1,59 @@
+@use "sass:math";
+
 @import 'variables';
+
+$two-col: math.div(480px, 16px) * 1rem;
 
 .container {
   @include section($max-text-width);
 
   // margin-top: 4rem;
   border-top: 1px solid #333;
-  padding-top: 2rem;
+  padding: 1rem 1rem 0;
+
+  > div {
+    margin-top: 1rem;
+  }
+
+  @media screen and (min-width: $two-col) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .footerContent {
   font-size: .75rem;
   color: #999;
-
   text-align: center;
+
+  @media screen and (min-width: $two-col) {
+    text-align: left;
+  }
 
   a {
     color: $bright;
+  }
+}
+
+.socialIcons {
+  text-align: center;
+
+  @media screen and (min-width: $two-col) {
+    text-align: right;
+  }
+
+  a {
+    margin: 0 1rem;
+    opacity: 0.5;
+
+    @media screen and (min-width: $two-col) {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
