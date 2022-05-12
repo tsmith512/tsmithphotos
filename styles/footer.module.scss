@@ -18,6 +18,11 @@ $two-col: math.div(480px, 16px) * 1rem;
   @media screen and (min-width: $two-col) {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    > div {
+      margin-top: 0;
+    }
   }
 }
 
@@ -40,6 +45,10 @@ $two-col: math.div(480px, 16px) * 1rem;
 
   @media screen and (min-width: $two-col) {
     text-align: right;
+  }
+
+  img {
+    vertical-align: middle;
   }
 
   a {
