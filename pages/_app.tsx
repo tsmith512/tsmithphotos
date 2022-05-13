@@ -30,6 +30,7 @@ function TSmithPhotos({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <Footer />
       <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8906f1ffada140cb91acd635ebb13eea"}'></script>
+      <script defer data-domain="tsmith.photos" data-api="https://tsmith.photos/p/event" src="https://tsmith.photos/p/script.js"></script>
     </>
   );
 }
