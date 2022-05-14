@@ -24,4 +24,7 @@ fi
 ./bin/aws-cli/v2/current/bin/aws configure set default.s3.signature_version s3v4
 ./bin/aws-cli/v2/current/bin/aws s3 --endpoint-url $R2_ENDPOINT cp $ASSETS_FOLDER/photos photos --recursive
 
-## Step 3: Typefaces?
+## Step 3: Typefaces
+mkdir -p public/fonts
+./bin/aws-cli/v2/current/bin/aws s3 --endpoint-url $R2_ENDPOINT cp $ASSETS_FOLDER/845484.zip .
+unzip -o 845484.zip -d public/fonts/
