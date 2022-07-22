@@ -28,6 +28,7 @@ export const Photo: React.FC<PhotoProps> = (props): ReactElement => {
             width={image.width}
             height={image.height}
             className={style.photo}
+            loading="lazy"
           />
         </a>
       </div>
