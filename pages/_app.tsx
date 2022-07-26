@@ -14,11 +14,6 @@ function TSmithPhotos({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cloud.typography.com/6795652/6779432/css/fonts.css"
-        />
 
         <meta name="viewport" content="width=device-width" />
 

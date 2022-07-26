@@ -24,6 +24,7 @@ export const PostIndex = (props: PostIndexProps) => {
                 width={image.width}
                 height={image.height}
                 className={style.image}
+                loading="lazy"
               />
             </div>
             <h1 className={style.title}>{props.post.data.title}</h1>

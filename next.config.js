@@ -11,6 +11,7 @@ module.exports = withPlugins([
     }
   }],
 ],{
+  optimizeFonts: false,
   reactStrictMode: true,
   images: {
     disableStaticImages: true,
