@@ -14,8 +14,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const preferredOrder = [
     'west-texas',
     'coronaroadtrip',
-    'digital-photography-badge-homework',
     'climbing',
+    'theatre',
+    'digital-photography-badge-homework',
     'austin-covid-shutdown',
     'austin-to-alaska',
     'ozarks-road-test',
@@ -24,7 +25,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     'overland-in-the-southwest',
     'new-mexico',
     'the-pacific-coast-highway',
-    'theatre',
     'new-york-city',
     'a-night-in-intercontinental',
     'pets',
