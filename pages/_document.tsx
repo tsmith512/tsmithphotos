@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
@@ -6,7 +6,9 @@ export default function Document() {
       <Head />
 
       {/* This gross hack to make that onLoad work. See https://stackoverflow.com/questions/64121456/next-js-how-to-add-a-link-tag-inside-the-head-with-literal-onload-attribut */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         </style>
         <link
           rel="preload"
@@ -16,12 +18,14 @@ export default function Document() {
           onLoad="this.rel='stylesheet'"
         />
         <style>
-      `}} />
+      `,
+        }}
+      />
 
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

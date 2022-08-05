@@ -14,6 +14,7 @@
     "unused": "bin/find-unused.sh"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.2.3",
     "eslint-config-prettier": "^8.5.0",
     "gray-matter": "^4.0.3",
     "image-trace-loader": "^1.0.2",

@@ -32,6 +32,7 @@ $split-box: math.div(450px, 16px) * 1rem;
     .title {
       color: $bright;
       font-family: $cyclone-fill;
+      font-stretch: condensed;
       text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
     }
 
