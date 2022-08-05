@@ -22,7 +22,7 @@ const ErrorNotFound: NextPage = () => {
 };
 
 export const config = {
-  unstable_runtimeJS: false
+  unstable_runtimeJS: false,
 };
 
 export default ErrorNotFound;

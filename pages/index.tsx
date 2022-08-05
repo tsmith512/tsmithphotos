@@ -53,14 +53,15 @@ const Home: NextPage<AllAlbumsInterface> = ({ posts }) => {
         <Masthead title="Taylor Smith">
           <Nav />
         </Masthead>
-        {posts?.length && posts.map((post, i) => <PostIndex key={post.slug} post={post} index={i} />)}
+        {posts?.length &&
+          posts.map((post, i) => <PostIndex key={post.slug} post={post} index={i} />)}
       </main>
     </div>
   );
 };
 
 export const config = {
-  unstable_runtimeJS: false
+  unstable_runtimeJS: false,
 };
 
 export default Home;

@@ -21,7 +21,7 @@ export const Banner: React.FC<BannerProps> = (props): ReactElement => {
         <img
           src={image.fullSrc}
           srcSet={image.srcSet}
-          sizes={props.fullscreen ? "100vw" : "(min-width: 960px) 50vw, 100vw"}
+          sizes={props.fullscreen ? '100vw' : '(min-width: 960px) 50vw, 100vw'}
           width={image.width}
           height={image.height}
           className={style.graphic}
