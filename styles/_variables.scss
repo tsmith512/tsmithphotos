@@ -11,10 +11,11 @@ $gallery-expand: math.div(720px, 16px) * 1rem;
 // Typography
 
 $sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+$narrow: 'Helvetica Condensed', 'Arial Narrow', 'Helvetica Neue Condensed Bold', $sans;
 
-$cyclone-outline: "Cyclone A", "Cyclone B", $sans;
-$cyclone-inline: "Cyclone Inline A", "Cyclone Inline B", $sans;
-$cyclone-fill: "Cyclone Background A", "Cyclone Background B", $sans;
+$cyclone-outline: "Cyclone A", "Cyclone B", $narrow;
+$cyclone-inline: "Cyclone Inline A", "Cyclone Inline B", $narrow;
+$cyclone-fill: "Cyclone Background A", "Cyclone Background B", $narrow;
 
 $verlag: "Verlag A", "Verlag B", $sans;
 
